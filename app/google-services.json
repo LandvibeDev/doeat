@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "338794080483",
+    "firebase_url": "https://doeatdoeat-a887c.firebaseio.com",
+    "project_id": "doeatdoeat-a887c",
+    "storage_bucket": "doeatdoeat-a887c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338794080483:android:88a2f7f29fbe3979",
+        "android_client_info": {
+          "package_name": "com.seoul.appcontest.doeatdoeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338794080483-9o7pq5b0t0lci9m3634ruacga8e3u24i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9xAnh0DPiHUpGL0B2trVuJke5BGlbECU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
