@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(getApplication());
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         _gologinpageButton.setOnClickListener(new View.OnClickListener(){
