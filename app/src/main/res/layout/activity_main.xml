@@ -10,8 +10,8 @@
     tools:context="com.seoul.appcontest.doeatdoeat.MainActivity">
 
     <Button
-        android:id="@+id/go_login"
+        android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="go login"/>
+        android:text="signout"/>
 </RelativeLayout>
