@@ -45,6 +45,7 @@ public class LoginActivity extends FragmentActivity {
     @InjectView(R.id.email) EditText _emailText;
     @InjectView(R.id.password) EditText _passwordText;
     @InjectView(R.id.btnLogin) Button _loginButton;
+    @InjectView(R.id.btnForgotPassword) Button _forgotpasswordLink;
     @InjectView(R.id.btnLinkToRegisterScreen) TextView _signupLink;
 
     @Override
@@ -111,6 +112,14 @@ public class LoginActivity extends FragmentActivity {
             }
         });
 
+        _forgotpasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "비밀번호 찾기 페이지로 이동합니다", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         _signupLink.setOnClickListener(new View.OnClickListener(){
             @Override

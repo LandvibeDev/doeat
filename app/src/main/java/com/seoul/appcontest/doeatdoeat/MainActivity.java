@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String Tag = "MainActivity";
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
+
     @InjectView(R.id.signout) Button _signoutButton;
 
     @Override
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-
             }
         });
     }
