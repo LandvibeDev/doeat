@@ -97,6 +97,7 @@ public class SignupActivity extends FragmentActivity {
 
                                                         Toast.makeText(SignupActivity.this, "회원가입 완료!", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                         startActivity(intent);
                                                         finish();
 
@@ -120,7 +121,7 @@ public class SignupActivity extends FragmentActivity {
             public void onClick(View v) {
                 Toast.makeText(SignupActivity.this, "로그인 페이지로 이동합니다", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
         });
