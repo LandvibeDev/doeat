@@ -28,6 +28,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -37,7 +39,7 @@ import butterknife.InjectView;
  */
 public class LoginActivity extends FragmentActivity {
 
-    private static final String Tag = "LoginActivity";
+    private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
     private CallbackManager mCallbackManager;
     private AccessToken mToken = null;
@@ -51,6 +53,9 @@ public class LoginActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        ButterKnife.inject(this);
+
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -60,6 +65,7 @@ public class LoginActivity extends FragmentActivity {
             finish();
         }
 
+
         /*
         FaceBoock
          */
@@ -68,8 +74,6 @@ public class LoginActivity extends FragmentActivity {
         mCallbackManager = CallbackManager.Factory.create();
         mToken = AccessToken.getCurrentAccessToken();
 
-        setContentView(R.layout.activity_login);
-        ButterKnife.inject(this);
 
 
         _loginButton.setOnClickListener(new View.OnClickListener(){

@@ -1,13 +1,13 @@
 package com.seoul.appcontest.doeatdoeat;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +17,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -25,8 +29,10 @@ import butterknife.InjectView;
  * Created by user on 2016-09-05.
  */
 public class SignupActivity extends FragmentActivity {
-
+    private static final String TAG = "SignupActivity";
     private FirebaseAuth auth;
+    private FirebaseUser firebaseUser;
+
     @InjectView(R.id.name) EditText _inputName;
     @InjectView(R.id.email) EditText _inputEmail;
     @InjectView(R.id.password) EditText _inputPassword;
@@ -67,17 +73,41 @@ public class SignupActivity extends FragmentActivity {
                     return;
                 }
 
+
                 auth.createUserWithEmailAndPassword(email,password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "회원가입 완료!", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                    Log.d(TAG, "Login Successful");
+
+                                    // Save User Info (Name, Uri)
+                                    String name = _inputName.getText().toString().trim();
+                                    firebaseUser = auth.getCurrentUser();
+                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                            .setDisplayName(name)
+                                            //.setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+                                            .build();
+                                    firebaseUser.updateProfile(profileUpdates)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Log.d(TAG, "User profile updated.");
+
+                                                        Toast.makeText(SignupActivity.this, "회원가입 완료!", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                                        startActivity(intent);
+                                                        finish();
+
+                                                    }else{
+                                                        Log.d(TAG, "User profile update failed");
+                                                    }
+                                                }
+                                            });
                                 } else {
                                     //error
+                                    Log.d(TAG, "Login Failed");
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),Toast.LENGTH_SHORT).show();
                                 }
                             }

@@ -6,7 +6,6 @@
 
     <color name="bg_login">#26ae90</color>
     <color name="bg_register">#2e3237</color>
-    <color name="bg_main">#428bca</color>
     <color name="white">#ffffff</color>
     <color name="input_login">#222222</color>
     <color name="input_login_hint">#999999</color>
@@ -15,8 +14,6 @@
     <color name="input_register_hint">#5e6266</color>
     <color name="btn_login">#26ae90</color>
     <color name="btn_login_bg">#eceef1</color>
-    <color name="lbl_name">#333333</color>
-    <color name="btn_logut_bg">#ff6861</color>
     <color name="btn_reset_password">#000000</color>
     <color name="btn_reset_password_bg">#d9f578</color>
     <color name="btn_back">#d9f578</color>

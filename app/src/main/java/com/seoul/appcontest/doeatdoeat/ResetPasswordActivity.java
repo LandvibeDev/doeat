@@ -23,7 +23,7 @@ import butterknife.InjectView;
  */
 public class ResetPasswordActivity extends FragmentActivity {
 
-    private static final String Tag = "ResetPasswordActivity";
+    private static final String TAG = "ResetPasswordActivity";
 
     private FirebaseAuth auth;
 
