@@ -23,18 +23,19 @@
             android:id="@+id/layout_topbar"
             android:layout_width="match_parent"
             android:layout_height="50dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/top_label_category"/>
+                android:text="@string/top_label_category" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/alram_icon"/>
+                android:background="@drawable/alram_icon" />
 
         </RelativeLayout>
 
@@ -43,17 +44,17 @@
             android:id="@+id/layout_menu"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:background="#ffffff">
+            android:background="#ffffff"
+            android:orientation="horizontal">
 
             <!-- 홈 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_home"
@@ -64,100 +65,200 @@
 
             <!-- 매칭 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_match"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:background="@drawable/match_icon" />
+                    android:background="@drawable/match_icon"
+                    android:padding="0dp" />
 
             </RelativeLayout>
 
             <!-- 리스트 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/menu_icon"/>
+                    android:background="@drawable/menu_icon" />
 
             </RelativeLayout>
 
             <!-- 즐겨찾기 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/like_icon"/>
+                    android:background="@drawable/like_icon" />
 
             </RelativeLayout>
 
             <!-- 프로필 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/profile_icon"/>
+                    android:background="@drawable/profile_icon" />
 
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
 
 
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:weightSum="1">
+
         <Button
             android:id="@+id/signout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="signout"/>
+            android:text="signout" />
+
         <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="not exist"/>
+            android:text="not exist" />
+
         <TextView
             android:id="@+id/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="not exist"/>
+            android:text="not exist" />
+
         <TextView
             android:id="@+id/user_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="not exist"/>
+            android:text="not exist" />
 
-        <FrameLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-        </FrameLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageButton
+                    android:id="@+id/menu_rice"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/rice" />
+
+
+                <ImageButton
+                    android:id="@+id/menu_meat"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:paddingLeft="10dp"
+                    android:src="@drawable/meat"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/menu_rice" />
+
+                <ImageButton
+                    android:id="@+id/menu_noodle"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/noodle"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/menu_meat"/>
+
+                <ImageButton
+                    android:id="@+id/menu_soup"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/soup"
+                    android:layout_below="@id/menu_rice"
+                     />
+
+                <ImageButton
+                    android:id="@+id/menu_flour_based_food"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/flour_based_food"
+                    android:layout_toRightOf="@id/menu_soup"
+                    android:layout_below="@id/menu_meat"
+                    />
+
+                <ImageButton
+                    android:id="@+id/menu_drink"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/drink"
+                    android:layout_below="@+id/menu_noodle"
+                    android:layout_toRightOf="@id/menu_flour_based_food"
+                     />
+
+                <ImageButton
+                    android:id="@+id/menu_dessert"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/dessert"
+                    android:layout_below="@id/menu_soup"
+                     />
+
+                <ImageButton
+                    android:id="@+id/menu_convenient_store_food"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/convenient_store_food"
+                    android:layout_toRightOf="@id/menu_dessert"
+                    android:layout_below="@id/menu_flour_based_food" />
+
+                <ImageButton
+                    android:id="@+id/menu_seafood"
+                    android:layout_margin="10dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_below="@id/menu_drink"
+                    android:src="@drawable/seafood"
+                    android:layout_toRightOf="@id/menu_flour_based_food" />
+
+
+            </RelativeLayout>
+        </ScrollView>
 
     </LinearLayout>
 
