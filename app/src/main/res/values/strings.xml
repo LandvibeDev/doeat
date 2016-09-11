@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">DoEatDoEat</string>
+    <string name="app_name_eng">DoEatDoEat</string>
+    <string name="app_name_kor">두잇두잇</string>
     <string name="facebook_app_id">1865882396965465</string>
 
     <string name="hint_email">Email</string>
@@ -22,5 +23,7 @@
     <string name="top_label_category">CATEGORY</string>
     <string name="top_label_favorite">FAVORITE</string>
     <string name="top_label_profile">PROFILE</string>
+
+    <string name="copyright">COPYRIGHT\u00a92016 DOEAT ALL RIGHTS RESERVED.</string>
 
 </resources>

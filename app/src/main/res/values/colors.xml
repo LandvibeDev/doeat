@@ -18,4 +18,6 @@
     <color name="btn_reset_password_bg">#d9f578</color>
     <color name="btn_back">#d9f578</color>
     <color name="bg_reset_password">#00bcd4</color>
+
+    <color name="copyright">#808080</color>
 </resources>
