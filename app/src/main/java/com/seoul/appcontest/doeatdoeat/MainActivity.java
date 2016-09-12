@@ -1,5 +1,8 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -7,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +37,16 @@ public class MainActivity extends FragmentActivity {
     @InjectView(R.id.user_name) TextView _nameText;
     @InjectView(R.id.user_email) TextView _emailText;
     @InjectView(R.id.user_id) TextView _idText;
+
+    @InjectView(R.id.menu_rice) ImageButton _menuRice;
+    @InjectView(R.id.menu_meat) ImageButton _menuMeat;
+    @InjectView(R.id.menu_noodle) ImageButton _menuNoodle;
+    @InjectView(R.id.menu_soup) ImageButton _menuSoup;
+    @InjectView(R.id.menu_flour_based_food) ImageButton _menuFlour;
+    @InjectView(R.id.menu_drink) ImageButton _menuDrink;
+    @InjectView(R.id.menu_seafood) ImageButton _menuSeaFood;
+    @InjectView(R.id.menu_convenient_store_food) ImageButton _menuConvenient;
+    @InjectView(R.id.menu_dessert) ImageButton _menuDessert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +103,27 @@ public class MainActivity extends FragmentActivity {
                 finish();
             }
         });
+
+
+        _menuRice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectFrag(view);
+            }
+        });
+    }
+
+    public void selectFrag(View view){
+        Fragment fr=null;
+
+        if(view==_menuRice){
+            fr= new MenuRice();
+        }
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.mainLayout, fr);
+        fragmentTransaction.commit();
+
     }
 
     @Override
@@ -100,4 +135,6 @@ public class MainActivity extends FragmentActivity {
     public void signOut(FirebaseAuth auth){
         auth.signOut();
     }
+
 }
+

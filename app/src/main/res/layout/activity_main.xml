@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
 
     <!--여기에 만들어-->
@@ -9,9 +12,146 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#26ae90">
-
-
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/signout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="signout" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="not exist" />
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="not exist" />
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="not exist" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="314dp"
+            android:fillViewport="true"
+            android:layout_weight="0.18"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageButton
+                    android:id="@+id/menu_rice"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/rice"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/menu_meat"
+                    android:layout_marginEnd="39dp"
+                    />
+
+
+                <ImageButton
+                    android:id="@+id/menu_meat"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/meat"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="59dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/menu_noodle"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/noodle"
+                    android:layout_below="@id/menu_rice"
+                    android:layout_alignLeft="@id/menu_rice"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/menu_soup"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/soup"
+                    android:layout_below="@id/menu_meat"
+                    android:layout_alignLeft="@id/menu_meat"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/menu_flour_based_food"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/flour_based_food"
+                    android:layout_below="@id/menu_noodle"
+                    android:layout_alignLeft="@id/menu_noodle"
+                    android:layout_marginTop="20dp" />
+
+                <ImageButton
+                    android:id="@+id/menu_drink"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/drink"
+                    android:layout_below="@id/menu_soup"
+                    android:layout_alignLeft="@id/menu_soup"
+                    android:layout_marginTop="20dp"
+                    />
+
+
+                <ImageButton
+                    android:id="@+id/menu_convenient_store_food"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/convenient_store_food"
+                    android:layout_below="@id/menu_drink"
+                    android:layout_alignLeft="@id/menu_drink"
+                    android:layout_marginTop="20dp" />
+
+                <ImageButton
+                    android:id="@+id/menu_seafood"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/seafood"
+                    android:layout_below="@id/menu_flour_based_food"
+                    android:layout_alignLeft="@id/menu_flour_based_food"
+                    android:layout_marginTop="20dp"
+                    />
+                <ImageButton
+                    android:id="@+id/menu_dessert"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/dessert"
+                    android:layout_below="@id/menu_seafood"
+                    android:layout_alignLeft="@id/menu_seafood"
+                    android:layout_marginTop="20dp" />
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/front_bar"
@@ -128,139 +268,10 @@
 
             </RelativeLayout>
         </LinearLayout>
+
+
     </RelativeLayout>
 
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:weightSum="1">
-
-        <Button
-            android:id="@+id/signout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="signout" />
-
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="not exist" />
-
-        <TextView
-            android:id="@+id/user_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="not exist" />
-
-        <TextView
-            android:id="@+id/user_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="not exist" />
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <ImageButton
-                    android:id="@+id/menu_rice"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/rice" />
-
-
-                <ImageButton
-                    android:id="@+id/menu_meat"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:paddingLeft="10dp"
-                    android:src="@drawable/meat"
-                    android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@id/menu_rice" />
-
-                <ImageButton
-                    android:id="@+id/menu_noodle"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/noodle"
-                    android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@id/menu_meat"/>
-
-                <ImageButton
-                    android:id="@+id/menu_soup"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/soup"
-                    android:layout_below="@id/menu_rice"
-                     />
-
-                <ImageButton
-                    android:id="@+id/menu_flour_based_food"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/flour_based_food"
-                    android:layout_toRightOf="@id/menu_soup"
-                    android:layout_below="@id/menu_meat"
-                    />
-
-                <ImageButton
-                    android:id="@+id/menu_drink"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/drink"
-                    android:layout_below="@+id/menu_noodle"
-                    android:layout_toRightOf="@id/menu_flour_based_food"
-                     />
-
-                <ImageButton
-                    android:id="@+id/menu_dessert"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/dessert"
-                    android:layout_below="@id/menu_soup"
-                     />
-
-                <ImageButton
-                    android:id="@+id/menu_convenient_store_food"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/convenient_store_food"
-                    android:layout_toRightOf="@id/menu_dessert"
-                    android:layout_below="@id/menu_flour_based_food" />
-
-                <ImageButton
-                    android:id="@+id/menu_seafood"
-                    android:layout_margin="10dp"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_below="@id/menu_drink"
-                    android:src="@drawable/seafood"
-                    android:layout_toRightOf="@id/menu_flour_based_food" />
-
-
-            </RelativeLayout>
-        </ScrollView>
-
-    </LinearLayout>
 
 </FrameLayout>
 
