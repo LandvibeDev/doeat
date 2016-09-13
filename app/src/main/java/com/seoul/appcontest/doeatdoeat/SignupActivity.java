@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -26,16 +27,16 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by user on 2016-09-05.
+ * Created by user_icon_64 on 2016-09-05.
  */
 public class SignupActivity extends FragmentActivity {
     private static final String TAG = "SignupActivity";
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
 
-    @InjectView(R.id.name) EditText _inputName;
-    @InjectView(R.id.email) EditText _inputEmail;
-    @InjectView(R.id.password) EditText _inputPassword;
+    @InjectView(R.id.name) AppCompatEditText _inputName;
+    @InjectView(R.id.email) AppCompatEditText _inputEmail;
+    @InjectView(R.id.password) AppCompatEditText _inputPassword;
     @InjectView(R.id.btnRegister) Button _btnRegister;
     @InjectView(R.id.btnLinkToLoginScreen) Button _btnLinkToLogin;
 

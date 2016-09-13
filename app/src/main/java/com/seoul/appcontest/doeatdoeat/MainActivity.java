@@ -56,7 +56,7 @@ public class MainActivity extends FragmentActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
-        //Get current user
+        //Get current user_icon_64
         final FirebaseUser user = auth.getCurrentUser();
         if(user == null){
             // 인증된 사용자가 없을때 LoginActivity로 이동
@@ -74,7 +74,7 @@ public class MainActivity extends FragmentActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user == null) {
-                    // user auth state is changed - user is null
+                    // user_icon_64 auth state is changed - user_icon_64 is null
                     // launch login activity
                     Toast.makeText(MainActivity.this, "로그아웃 완료, 로그인 페이지로 이동합니다", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);

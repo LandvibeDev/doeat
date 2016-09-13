@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by user on 2016-09-02.
+ * Created by user_icon_64 on 2016-09-02.
  */
 public class LoginActivity extends FragmentActivity {
 
@@ -44,8 +45,8 @@ public class LoginActivity extends FragmentActivity {
     private CallbackManager mCallbackManager;
     private AccessToken mToken = null;
     private FirebaseAuth auth;
-    @InjectView(R.id.email) EditText _emailText;
-    @InjectView(R.id.password) EditText _passwordText;
+    @InjectView(R.id.email) AppCompatEditText _emailText;
+    @InjectView(R.id.password) AppCompatEditText _passwordText;
     @InjectView(R.id.btnLogin) Button _loginButton;
     @InjectView(R.id.btnForgotPassword) Button _forgotpasswordLink;
     @InjectView(R.id.btnLinkToRegisterScreen) TextView _signupLink;
@@ -92,7 +93,7 @@ public class LoginActivity extends FragmentActivity {
                     return;
                 }
 
-                //authenticate user
+                //authenticate user_icon_64
                 auth.signInWithEmailAndPassword(email,password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override

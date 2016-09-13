@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by user on 2016-09-06.
+ * Created by user_icon_64 on 2016-09-06.
  */
 public class ResetPasswordActivity extends FragmentActivity {
 
@@ -27,7 +28,7 @@ public class ResetPasswordActivity extends FragmentActivity {
 
     private FirebaseAuth auth;
 
-    @InjectView(R.id.email) EditText _emailText;
+    @InjectView(R.id.email) AppCompatEditText _emailText;
     @InjectView(R.id.btnResetPassword) Button _resetButton;
     @InjectView(R.id.btnBack) Button _backLoginButton;
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 /**
- * Created by user on 2016-09-11.
+ * Created by user_icon_64 on 2016-09-11.
  */
 public class SplashActivity extends Activity{
     @Override
@@ -14,7 +14,7 @@ public class SplashActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Handler hd = new Handler();
-        hd.postDelayed(new splashhandler() , 5000); // 5초 후에 hd Handler 실행
+        hd.postDelayed(new splashhandler() , 1000); // 5초 후에 hd Handler 실행
     }
 
     private class splashhandler implements Runnable{
