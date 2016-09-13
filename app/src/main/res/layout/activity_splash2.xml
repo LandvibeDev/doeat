@@ -3,13 +3,14 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:background="@color/red"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
         android:layout_width="500dp"
         android:layout_height="500dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/doeat_logo_red" />
+        android:src="@mipmap/doeat_logo_white" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:textSize="12dp"
-        android:textColor="@color/copyright"
+        android:textColor="@color/white"
         android:text="@string/copyright"/>
 
 </RelativeLayout>
