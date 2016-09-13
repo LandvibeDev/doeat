@@ -64,12 +64,18 @@
         <!-- Login Button -->
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
             android:background="@drawable/button_bg_stroke"
             android:text="@string/btn_login"
             android:textColor="@color/white" />
+        <Button
+            android:id="@+id/btnFacebookLogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dip"
+            android:background="@mipmap/facebook_icon" />
 
         <Button
             android:id="@+id/btnForgotPassword"
