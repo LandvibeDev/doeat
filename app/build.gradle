@@ -23,17 +23,21 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
-
     compile 'com.android.support:design:24.2.0'
+
     compile 'com.jakewharton:butterknife:6.1.0'
 
+    //firebase
     compile 'com.google.firebase:firebase-core:9.2.1'
     compile 'com.google.firebase:firebase-database:9.2.1'
     compile 'com.google.firebase:firebase-auth:9.2.1'
     compile 'com.google.android.gms:play-services-auth:9.2.1'
 
+    //facebook
     compile 'com.facebook.android:facebook-android-sdk:4.+'
 
+    //font
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.android.support:cardview-v7:24.2.0'
 
 }

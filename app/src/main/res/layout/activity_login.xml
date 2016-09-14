@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -67,26 +67,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:background="@drawable/button_bg_stroke"
+            android:background="@color/darker_red"
             android:text="@string/btn_login"
-            android:textColor="@color/white" />
-        <Button
-            android:id="@+id/btnFacebookLogin"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dip"
-            android:background="@mipmap/facebook_icon" />
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.JUA"
+            />
+
+        <LinearLayout
+            android:id="@+id/sns_btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_connect_sns"
+                android:textColor="@color/black"
+                android:layout_marginRight="10dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA" />
+
+            <Button
+                android:id="@+id/btnFacebookLogin"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/facebook_icon_rec" />
+
+            <Button
+                android:id="@+id/btnGoogleLogin"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/google_icon_rec" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnForgotPassword"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
+            android:layout_marginTop="10dip"
             android:background="@null"
             android:text="@string/btn_link_to_forgot_password"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="13dp"
+            android:textAppearance="@style/TextAppearance.JUA" />
 
         <!-- Link to Sign up Screen -->
 
@@ -98,7 +128,8 @@
             android:text="@string/btn_link_to_register"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="13dp"
+            android:textAppearance="@style/TextAppearance.JUA" />
 
     </LinearLayout>
 

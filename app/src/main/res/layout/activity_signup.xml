@@ -31,10 +31,9 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+
                 android:hint="@string/hint_name"
                 android:inputType="textCapWords"
-                android:padding="10dp"
                 android:singleLine="true"
                 android:drawableLeft="@mipmap/user_icon_64"
                 android:drawablePadding="10dp"
@@ -50,10 +49,9 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
-                android:padding="10dp"
                 android:singleLine="true"
                 android:drawableLeft="@mipmap/mail_icon_64"
                 android:drawablePadding="10dp"
@@ -69,10 +67,8 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:padding="10dp"
                 android:singleLine="true"
                 android:drawableLeft="@mipmap/password_icon_64"
                 android:drawablePadding="10dp"/>
@@ -86,9 +82,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@drawable/button_bg_stroke"
+            android:background="@color/darker_red"
             android:text="@string/btn_register"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.JUA"/>
 
         <!-- Link to Login Screen -->
 
@@ -101,7 +98,8 @@
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="13dp"
+            android:textAppearance="@style/TextAppearance.JUA"/>
     </LinearLayout>
 
 </LinearLayout>

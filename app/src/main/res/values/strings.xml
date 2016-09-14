@@ -17,6 +17,7 @@
     <string name="btn_back">&lt;&lt;back</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions</string>
+    <string name="label_connect_sns">Or you can connect with</string>
 
     <string name="top_label_home">HOME</string>
     <string name="top_label_match">MATCHING</string>

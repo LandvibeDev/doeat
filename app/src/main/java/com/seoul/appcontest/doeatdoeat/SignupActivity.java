@@ -1,5 +1,6 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by user_icon_64 on 2016-09-05.
@@ -40,6 +42,10 @@ public class SignupActivity extends FragmentActivity {
     @InjectView(R.id.btnRegister) Button _btnRegister;
     @InjectView(R.id.btnLinkToLoginScreen) Button _btnLinkToLogin;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

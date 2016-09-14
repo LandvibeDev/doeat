@@ -1,5 +1,6 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -43,6 +44,8 @@ import java.util.Arrays;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by user_icon_64 on 2016-09-02.
@@ -63,8 +66,20 @@ public class LoginActivity extends FragmentActivity {
     @InjectView(R.id.btnLinkToRegisterScreen) TextView _signupLink;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+//                .setDefaultFontPath("fonts/BMJUA_ttf.ttf")
+//                .setFontAttrId(R.attr.fontPath)
+//                .build()
+//        );
+
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 
