@@ -126,6 +126,7 @@ public class MainActivity extends FragmentActivity {
                     }
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_left,R.anim.slide_out_left);
+                    finish();
                 }
             });
         }
