@@ -7,8 +7,7 @@
     <!--여기에 만들어-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#26ae90">
+        android:layout_height="match_parent">
 
 
     </RelativeLayout>
@@ -22,19 +21,30 @@
         <RelativeLayout
             android:id="@+id/layout_topbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/top_label_profile"/>
+            android:layout_height="60dp">
 
-            <Button
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/alram_icon"/>
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/doeat_logo1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top_label_profile"
+                    android:textColor="@color/gray"
+                    android:textAppearance="@style/TextAppearance.JUA"/>
+
+            </LinearLayout>
+
 
         </RelativeLayout>
 
@@ -43,86 +53,107 @@
             android:id="@+id/layout_menu"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:background="#ffffff">
+            android:background="@color/light_gray"
+            android:orientation="horizontal">
 
             <!-- 홈 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/home_icon" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="17dp"
+                    android:background="@mipmap/home_icon" />
             </RelativeLayout>
 
             <!-- 매칭 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_match"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
-                    android:background="@drawable/match_icon" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="17dp"
+                    android:background="@mipmap/sns_icon"
+                    />
 
             </RelativeLayout>
 
             <!-- 리스트 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/menu_icon"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="17dp"
+                    android:background="@mipmap/list_icon" />
 
             </RelativeLayout>
 
             <!-- 즐겨찾기 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/like_icon"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="17dp"
+                    android:background="@mipmap/like_icon" />
 
             </RelativeLayout>
 
             <!-- 프로필 버튼 -->
             <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:keepScreenOn="true"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/profile_icon"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="17dp"
+                    android:background="@mipmap/profile_icon" />
 
             </RelativeLayout>
         </LinearLayout>
+
+
     </RelativeLayout>
 
 

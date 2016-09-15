@@ -3,6 +3,7 @@ package com.seoul.appcontest.doeatdoeat;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
@@ -47,6 +49,12 @@ public class MainActivity extends FragmentActivity {
     @InjectView(R.id.menu_seafood) ImageButton _menuSeaFood;
     @InjectView(R.id.menu_convenient_store_food) ImageButton _menuConvenient;
     @InjectView(R.id.menu_dessert) ImageButton _menuDessert;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -19,11 +19,11 @@
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions</string>
     <string name="label_connect_sns">Or you can connect with</string>
 
-    <string name="top_label_home">HOME</string>
-    <string name="top_label_match">MATCHING</string>
-    <string name="top_label_category">CATEGORY</string>
-    <string name="top_label_favorite">FAVORITE</string>
-    <string name="top_label_profile">PROFILE</string>
+    <string name="top_label_home">Home</string>
+    <string name="top_label_sns">SNS</string>
+    <string name="top_label_category">Category</string>
+    <string name="top_label_Like">Like</string>
+    <string name="top_label_profile">Profile</string>
 
     <string name="copyright">COPYRIGHT\u00a92016 DOEAT ALL RIGHTS RESERVED.</string>
 

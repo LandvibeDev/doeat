@@ -1,5 +1,6 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by user_icon_64 on 2016-09-08.
@@ -31,6 +33,11 @@ public class ProfileActivity extends FragmentActivity {
     @InjectView(R.id.btn_profile) Button _profileButton;
 
     @InjectView(R.id.signout) Button _signoutButton;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
