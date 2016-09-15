@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#26ae90"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_nakji"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/nakji" />
+
+            <TextView
+                android:id="@+id/text_nakji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="낙지" />
+
+            <ImageView
+                android:id="@+id/image_zzuggumi"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/zzuggumi" />
+
+            <TextView
+                android:id="@+id/text_zzuggumi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="쭈꾸미" />
+
+            <ImageView
+                android:id="@+id/image_ganzanggezang"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/ganzanggezang" />
+
+            <TextView
+                android:id="@+id/text_ganzanggezang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="간장게장" />
+
+            <ImageView
+                android:id="@+id/image_ganzangseu"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/ganzangseu" />
+
+            <TextView
+                android:id="@+id/text_ganzangseu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="간장새우" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

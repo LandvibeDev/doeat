@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#26ae90"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_somac"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/somac" />
+
+            <TextView
+                android:id="@+id/text_somac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="소맥" />
+
+            <ImageView
+                android:id="@+id/image_linggelzu"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/linggelzu" />
+
+            <TextView
+                android:id="@+id/text_linggelzu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="링겔주" />
+
+            <ImageView
+                android:id="@+id/image_gozingamrae"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/gozingamrae" />
+
+            <TextView
+                android:id="@+id/text_gozingamrae"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="고진감래주" />
+
+            <ImageView
+                android:id="@+id/image_meronazu"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/meronazu" />
+
+            <TextView
+                android:id="@+id/text_meronazu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="메로나주" />
+
+            <ImageView
+                android:id="@+id/image_makgulli"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/makgulli" />
+
+            <TextView
+                android:id="@+id/text_makgulli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="막걸리" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

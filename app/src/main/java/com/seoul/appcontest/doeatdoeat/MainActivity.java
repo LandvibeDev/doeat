@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -23,6 +24,9 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends FragmentActivity {
     private static final String TAG = "MainActivity";
@@ -45,6 +49,10 @@ public class MainActivity extends FragmentActivity {
     @InjectView(R.id.menu_seafood) ImageButton _menuSeaFood;
     @InjectView(R.id.menu_convenient_store_food) ImageButton _menuConvenient;
     @InjectView(R.id.menu_dessert) ImageButton _menuDessert;
+
+    List<ImageButton> menuList=new ArrayList<ImageButton>();
+
+    private int classNum=0;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -81,27 +89,50 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        menuList.add(_menuRice);
+        menuList.add(_menuMeat);
+        menuList.add(_menuNoodle);
+        menuList.add(_menuSoup);
+        menuList.add(_menuFlour);
+        menuList.add(_menuDrink);
+        menuList.add(_menuSeaFood);
+        menuList.add(_menuConvenient);
+        menuList.add(_menuDessert);
 
-        _menuRice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectFrag(view);
-            }
-        });
-    }
 
-    public void selectFrag(View view){
-        Fragment fr=null;
-
-        if(view==_menuRice){
-            fr= new MenuRice();
+        for(int i=0;i<menuList.size();i++){
+            menuList.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=null;
+                    if(view.equals(_menuRice)) {
+                        intent = new Intent(MainActivity.this, MenuRiceActivity.class);
+                    }else if(view.equals(_menuMeat)){
+                        intent= new Intent(MainActivity.this,MenuMeatActivity.class);
+                    }else if(view.equals(_menuNoodle)){
+                        intent=new Intent(MainActivity.this,MenuNoodleActivity.class);
+                    }else if(view.equals(_menuSoup)){
+                        intent=new Intent(MainActivity.this,MenuSoupActivity.class);
+                    }else if(view.equals(_menuFlour)){
+                        intent=new Intent(MainActivity.this,MenuFlourActivity.class);
+                    }else if(view.equals(_menuDrink)){
+                        intent=new Intent(MainActivity.this,MenuDrinkActivity.class);
+                    }else if(view.equals(_menuSeaFood)){
+                        intent=new Intent(MainActivity.this,MenuSeaFoodActivity.class);
+                    }else if(view.equals(_menuConvenient)){
+                        intent=new Intent(MainActivity.this,MenuConvenientActivity.class);
+                    }else if(view.equals(_menuDessert)){
+                        intent=new Intent(MainActivity.this,MenuDessertActivity.class);
+                    }
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_left,R.anim.slide_out_left);
+                }
+            });
         }
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.mainLayout, fr);
-        fragmentTransaction.commit();
+
 
     }
+
 
 
 }

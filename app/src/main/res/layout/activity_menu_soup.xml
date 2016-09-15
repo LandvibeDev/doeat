@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#26ae90"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_sundaegook"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/sundaegook" />
+
+            <TextView
+                android:id="@+id/text_sundaegook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="순대국" />
+
+            <ImageView
+                android:id="@+id/image_gamzatang"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/gamzatang" />
+
+            <TextView
+                android:id="@+id/text_gamzatang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="감자탕" />
+
+            <ImageView
+                android:id="@+id/image_samgyaetang"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/samgyaetang" />
+
+            <TextView
+                android:id="@+id/text_samgyaetang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="삼계탕" />
+
+            <ImageView
+                android:id="@+id/image_mandugook"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/mandugook" />
+
+            <TextView
+                android:id="@+id/text_mandugook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="만두국" />
+
+            <ImageView
+                android:id="@+id/image_budaezzigae"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/budaezzigae" />
+
+            <TextView
+                android:id="@+id/text_budaezzigae"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="부대찌개" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

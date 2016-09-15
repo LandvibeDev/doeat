@@ -18,30 +18,43 @@
         <activity android:name=".SplashActivity2">
 
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
 
-        <activity android:name=".SignupActivity">
-        </activity>
+        <activity android:name=".SignupActivity"></activity>
 
-        <activity android:name=".ResetPasswordActivity">
-        </activity>
+        <activity android:name=".ResetPasswordActivity"></activity>
 
-        <activity android:name=".ProfileActivity">
-        </activity>
+        <activity android:name=".ProfileActivity"></activity>
 
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:label="@string/app_name_kor" />
+        <activity android:name=".MenuRiceActivity"></activity>
+
+        <activity android:name=".MenuMeatActivity"></activity>
+
+        <activity android:name=".MenuNoodleActivity"></activity>
+
+        <activity android:name=".MenuSoupActivity"></activity>
+
+        <activity android:name=".MenuFlourActivity"></activity>
+
+        <activity android:name=".MenuDrinkActivity"></activity>
+
+        <activity android:name=".MenuSeaFoodActivity"></activity>
+
+        <activity android:name=".MenuConvenientActivity"></activity>
+
+        <activity android:name=".MenuDessertActivity"></activity>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name_kor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+            android:value="@string/facebook_app_id" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
