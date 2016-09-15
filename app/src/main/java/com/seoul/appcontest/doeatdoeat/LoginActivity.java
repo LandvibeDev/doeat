@@ -30,7 +30,10 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +41,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,7 +57,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 /**
  * Created by user_icon_64 on 2016-09-02.
  */
-public class LoginActivity extends FragmentActivity {
+public class LoginActivity extends FragmentActivity
+        implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
@@ -61,10 +66,14 @@ public class LoginActivity extends FragmentActivity {
     private AccessToken token = null;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
+    private GoogleApiClient mGoogleApiClient;
+    private static final int RC_SIGN_IN=9001;
+
     @InjectView(R.id.email) AppCompatEditText _emailText;
     @InjectView(R.id.password) AppCompatEditText _passwordText;
     @InjectView(R.id.btnLogin) Button _loginButton;
     @InjectView(R.id.btnFacebookLogin) Button _loginFacebookButton;
+    @InjectView(R.id.btnGoogleLogin) Button _loginGoogleButton;
     @InjectView(R.id.btnForgotPassword) Button _forgotpasswordLink;
     @InjectView(R.id.btnLinkToRegisterScreen) TextView _signupLink;
 
@@ -97,7 +106,7 @@ public class LoginActivity extends FragmentActivity {
 
 
         /*
-        FaceBoock
+        FaceBoock Login
          */
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(getApplication());;
@@ -162,13 +171,30 @@ public class LoginActivity extends FragmentActivity {
         });
 
         /*
-        Google
+        Google Login
          */
         // Configure sign-in to request the user's ID, email address, and basic // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.server_client_id))
                 .requestEmail()
                 .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */,  this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
 
+        _loginGoogleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, RC_SIGN_IN);
+            }
+        });
+
+
+        /*
+        Email Login
+         */
         _loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -231,7 +257,55 @@ public class LoginActivity extends FragmentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        // 구글, 페이스북 인증 후 LoginActivity로 다시 돌아왔을 때
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            /*
+            Google
+            */
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+        }else {
+            /*
+            Facebook
+            */
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        }
+
     }
 
+    private void handleSignInResult(GoogleSignInResult result) {
+        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+        if (result.isSuccess()) {
+            // Signed in successfully, show authenticated UI.
+            GoogleSignInAccount acct = result.getSignInAccount();
+            final String token = acct.getIdToken();
+            Log.i("TAG", "Google AccessToken: " + token);
+            auth.signInWithCredential(GoogleAuthProvider.getCredential(token,null))
+                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(LoginActivity.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else{
+                                Toast.makeText(LoginActivity.this, "로그인 실패ㅜㅜ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+            //mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+            //updateUI(true);
+        } else {
+            // Signed out, show unauthenticated UI.
+            //updateUI(false);
+        }
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        //여긴 뭐해야되지....
+    }
 }
