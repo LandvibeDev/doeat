@@ -35,10 +35,6 @@ public class MainActivity extends FragmentActivity {
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
 
-    @InjectView(R.id.signout) Button _signoutButton;
-    @InjectView(R.id.user_name) TextView _nameText;
-    @InjectView(R.id.user_email) TextView _emailText;
-    @InjectView(R.id.user_id) TextView _idText;
 
     @InjectView(R.id.menu_rice) ImageButton _menuRice;
     @InjectView(R.id.menu_meat) ImageButton _menuMeat;
@@ -70,35 +66,8 @@ public class MainActivity extends FragmentActivity {
             // 인증된 사용자가 없을때 LoginActivity로 이동
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
             finish();
-        }else{
-            _nameText.setText(user.getDisplayName());
-            _emailText.setText(user.getEmail());
-            _idText.setText(user.getUid());
         }
 
-
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    // user_icon_64 auth state is changed - user_icon_64 is null
-                    // launch login activity
-                    Toast.makeText(MainActivity.this, "로그아웃 완료, 로그인 페이지로 이동합니다", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        };
-
-        _signoutButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                signOut(auth);
-            }
-        });
 
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,15 +103,6 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        auth.addAuthStateListener(authListener);
-    }
-
-    public void signOut(FirebaseAuth auth){
-        auth.signOut();
-    }
 
 }
 
