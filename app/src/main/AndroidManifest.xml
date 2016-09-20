@@ -28,6 +28,8 @@
 
         <activity android:name=".ProfileActivity"></activity>
 
+        <activity android:name=".FoodListActivity"></activity>
+
         <activity android:name=".MenuRiceActivity"></activity>
 
         <activity android:name=".MenuMeatActivity"></activity>

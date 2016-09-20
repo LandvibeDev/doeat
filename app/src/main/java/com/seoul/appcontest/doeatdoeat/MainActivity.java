@@ -1,8 +1,7 @@
 package com.seoul.appcontest.doeatdoeat;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.app.*;
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -122,9 +121,9 @@ public class MainActivity extends FragmentActivity {
                 public void onClick(View view) {
                     Intent intent = null;
                     if (view.equals(_menuRice)) {
-                        intent = new Intent(MainActivity.this, MenuRiceActivity.class);
+                        intent=new Intent(MainActivity.this,FoodListActivity.class);
                     } else if (view.equals(_menuMeat)) {
-                        intent = new Intent(MainActivity.this, MenuMeatActivity.class);
+                        intent = new Intent(MainActivity.this, FoodListActivity.class);
                     } else if (view.equals(_menuNoodle)) {
                         intent = new Intent(MainActivity.this, MenuNoodleActivity.class);
                     } else if (view.equals(_menuSoup)) {

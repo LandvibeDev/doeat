@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-
-    <!--여기에 만들어-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,87 +11,14 @@
     </RelativeLayout>
 
 
-        <!-- margin top 70dp 넣어놨다-->
+    <ListView
+        android:id="@+id/list_food"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="70dp"
-                android:layout_marginBottom="60dp">
-
-
-                <ImageButton
-                    android:id="@+id/menu_rice"
-                    android:src="@drawable/rice"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_gravity="left|top"
-                    />
-
-
-                <ImageButton
-                    android:id="@+id/menu_meat"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/meat"
-                    android:layout_gravity="center|top"
-
-                    />
-
-                <ImageButton
-                    android:id="@+id/menu_noodle"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/noodle"
-                    android:layout_gravity="right|top"
-                    />
-
-                <ImageButton
-                    android:id="@+id/menu_soup"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/soup"
-                    android:layout_gravity="left|center"
-                    />
-
-                <ImageButton
-                    android:id="@+id/menu_flour_based_food"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/flour_based_food"
-                    android:layout_gravity="center" />
-
-                <ImageButton
-                    android:id="@+id/menu_drink"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/drink"
-                    android:layout_gravity="center|right"
-                    />
-
-
-                <ImageButton
-                    android:id="@+id/menu_convenient_store_food"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/convenient_store_food"
-                    android:layout_gravity="bottom|left" />
-
-                <ImageButton
-                    android:id="@+id/menu_seafood"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/seafood"
-                    android:layout_gravity="center|bottom"
-                    />
-                <ImageButton
-                    android:id="@+id/menu_dessert"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/dessert"
-                    android:layout_gravity="bottom|right" />
-
-            </FrameLayout>
+    </ListView>
 
 
     <RelativeLayout
@@ -112,35 +35,44 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_centerInParent="true"
                 android:gravity="center"
-                android:layout_centerInParent="true">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/doeat_logo1"/>
+                    android:src="@mipmap/doeat_logo1" />
 
                 <TextView
+                    android:id="@+id/list_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/top_label_category"
-                    android:textColor="@color/gray"
-                    android:textAppearance="@style/TextAppearance.JUA"/>
+                    android:text="@string/top_label_rice"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    android:textColor="@color/gray" />
 
             </LinearLayout>
 
             <Button
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_marginBottom="15dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
                 android:background="@mipmap/menu_icon" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Back" />
 
         </RelativeLayout>
 
@@ -164,10 +96,10 @@
                     android:id="@+id/btn_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="17dp"
                     android:layout_marginRight="17dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/home_icon" />
             </RelativeLayout>
 
@@ -182,12 +114,11 @@
                     android:id="@+id/btn_match"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="17dp"
                     android:layout_marginRight="17dp"
-                    android:background="@mipmap/sns_icon"
-                    />
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/sns_icon" />
 
             </RelativeLayout>
 
@@ -202,10 +133,10 @@
                     android:id="@+id/btn_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="17dp"
                     android:layout_marginRight="17dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/list_icon" />
 
             </RelativeLayout>
@@ -221,10 +152,10 @@
                     android:id="@+id/btn_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="17dp"
                     android:layout_marginRight="17dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/like_icon" />
 
             </RelativeLayout>
@@ -240,10 +171,10 @@
                     android:id="@+id/btn_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="17dp"
                     android:layout_marginRight="17dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/profile_icon" />
 
             </RelativeLayout>
@@ -252,6 +183,4 @@
 
     </RelativeLayout>
 
-
 </FrameLayout>
-
