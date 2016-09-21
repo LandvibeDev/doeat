@@ -23,6 +23,14 @@
     <string name="top_label_sns">SNS</string>
     <string name="top_label_category">Category</string>
     <string name="top_label_rice">Rice</string>
+    <string name="top_label_meat">Meat</string>
+    <string name="top_label_noodle">Noodle</string>
+    <string name="top_label_soup">Soup</string>
+    <string name="top_label_flourfood">FlourFood</string>
+    <string name="top_label_drink">Drink</string>
+    <string name="top_label_convenient">Convenient</string>
+    <string name="top_label_seafood">SeaFood</string>
+    <string name="top_label_dessert">Dessert</string>
     <string name="top_label_Like">Like</string>
     <string name="top_label_profile">Profile</string>
 

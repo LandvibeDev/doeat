@@ -6,17 +6,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import com.facebook.FacebookSdk;
@@ -33,6 +37,7 @@ public class MainActivity extends FragmentActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
+    private ListViewAdapter adapter=new ListViewAdapter();
 
     @InjectView(R.id.btn_home)
     Button _homeButton;
@@ -45,29 +50,6 @@ public class MainActivity extends FragmentActivity {
     @InjectView(R.id.btn_profile)
     Button _profileButton;
 
-
-    @InjectView(R.id.menu_rice)
-    ImageButton _menuRice;
-    @InjectView(R.id.menu_meat)
-    ImageButton _menuMeat;
-    @InjectView(R.id.menu_noodle)
-    ImageButton _menuNoodle;
-    @InjectView(R.id.menu_soup)
-    ImageButton _menuSoup;
-    @InjectView(R.id.menu_flour_based_food)
-    ImageButton _menuFlour;
-    @InjectView(R.id.menu_drink)
-    ImageButton _menuDrink;
-    @InjectView(R.id.menu_seafood)
-    ImageButton _menuSeaFood;
-    @InjectView(R.id.menu_convenient_store_food)
-    ImageButton _menuConvenient;
-    @InjectView(R.id.menu_dessert)
-    ImageButton _menuDessert;
-
-    List<ImageButton> menuList = new ArrayList<ImageButton>();
-
-    private int classNum = 0;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -104,48 +86,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        menuList.add(_menuRice);
-        menuList.add(_menuMeat);
-        menuList.add(_menuNoodle);
-        menuList.add(_menuSoup);
-        menuList.add(_menuFlour);
-        menuList.add(_menuDrink);
-        menuList.add(_menuSeaFood);
-        menuList.add(_menuConvenient);
-        menuList.add(_menuDessert);
-
-
-        for (int i = 0; i < menuList.size(); i++) {
-            menuList.get(i).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = null;
-                    if (view.equals(_menuRice)) {
-                        intent=new Intent(MainActivity.this,FoodListActivity.class);
-                    } else if (view.equals(_menuMeat)) {
-                        intent = new Intent(MainActivity.this, FoodListActivity.class);
-                    } else if (view.equals(_menuNoodle)) {
-                        intent = new Intent(MainActivity.this, MenuNoodleActivity.class);
-                    } else if (view.equals(_menuSoup)) {
-                        intent = new Intent(MainActivity.this, MenuSoupActivity.class);
-                    } else if (view.equals(_menuFlour)) {
-                        intent = new Intent(MainActivity.this, MenuFlourActivity.class);
-                    } else if (view.equals(_menuDrink)) {
-                        intent = new Intent(MainActivity.this, MenuDrinkActivity.class);
-                    } else if (view.equals(_menuSeaFood)) {
-                        intent = new Intent(MainActivity.this, MenuSeaFoodActivity.class);
-                    } else if (view.equals(_menuConvenient)) {
-                        intent = new Intent(MainActivity.this, MenuConvenientActivity.class);
-                    } else if (view.equals(_menuDessert)) {
-                        intent = new Intent(MainActivity.this, MenuDessertActivity.class);
-                    }
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
-                    finish();
-                }
-            });
-        }
-
 
     }
 
@@ -157,8 +97,17 @@ public class MainActivity extends FragmentActivity {
             super.onBackPressed();
         } else {
             backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "'뒤로'버튼을한번더누르시면종료됩니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "'뒤로'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @OnClick({R.id.menu_rice,R.id.menu_meat,R.id.menu_noodle,R.id.menu_soup,R.id.menu_convenient_store_food,R.id.menu_drink,R.id.menu_flour_based_food,R.id.menu_seafood,R.id.menu_dessert})
+    public void onMenuClick(View view){
+        FoodListActivity.menuNum=view.getId();
+        Intent intent = new Intent(MainActivity.this, FoodListActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
+        finish();
     }
 
 }

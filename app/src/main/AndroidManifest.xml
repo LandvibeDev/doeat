@@ -30,23 +30,6 @@
 
         <activity android:name=".FoodListActivity"></activity>
 
-        <activity android:name=".MenuRiceActivity"></activity>
-
-        <activity android:name=".MenuMeatActivity"></activity>
-
-        <activity android:name=".MenuNoodleActivity"></activity>
-
-        <activity android:name=".MenuSoupActivity"></activity>
-
-        <activity android:name=".MenuFlourActivity"></activity>
-
-        <activity android:name=".MenuDrinkActivity"></activity>
-
-        <activity android:name=".MenuSeaFoodActivity"></activity>
-
-        <activity android:name=".MenuConvenientActivity"></activity>
-
-        <activity android:name=".MenuDessertActivity"></activity>
 
         <activity
             android:name="com.facebook.FacebookActivity"
