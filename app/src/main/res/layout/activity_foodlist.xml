@@ -56,23 +56,25 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="0dp"
                 android:layout_marginLeft="40dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="40dp"
                 android:background="@mipmap/menu_icon" />
 
             <Button
                 android:id="@+id/btn_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="27dp"
                 android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:text="Back" />
+                android:background="@mipmap/back_icon"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="0dp"
+                />
 
         </RelativeLayout>
 
@@ -80,7 +82,7 @@
         <LinearLayout
             android:id="@+id/layout_menu"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="@color/light_gray"
             android:orientation="horizontal">
@@ -96,10 +98,10 @@
                     android:id="@+id/btn_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/home_icon" />
             </RelativeLayout>
 
@@ -114,11 +116,12 @@
                     android:id="@+id/btn_match"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
                     android:layout_marginTop="10dp"
-                    android:background="@mipmap/sns_icon" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/season_icon"
+                    />
 
             </RelativeLayout>
 
@@ -133,10 +136,10 @@
                     android:id="@+id/btn_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/list_icon" />
 
             </RelativeLayout>
@@ -152,10 +155,10 @@
                     android:id="@+id/btn_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/like_icon" />
 
             </RelativeLayout>
@@ -171,10 +174,10 @@
                     android:id="@+id/btn_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/profile_icon" />
 
             </RelativeLayout>

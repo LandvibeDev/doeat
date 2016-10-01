@@ -101,7 +101,9 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    @OnClick({R.id.menu_rice,R.id.menu_meat,R.id.menu_noodle,R.id.menu_soup,R.id.menu_convenient_store_food,R.id.menu_drink,R.id.menu_flour_based_food,R.id.menu_seafood,R.id.menu_dessert})
+    @OnClick({R.id.menu_all,R.id.menu_rice,R.id.menu_noodle,
+            R.id.menu_soup,R.id.menu_meat,R.id.menu_fish,
+            R.id.menu_drink,R.id.menu_dessert,R.id.menu_street})
     public void onMenuClick(View view){
         FoodListActivity.menuNum=view.getId();
         Intent intent = new Intent(MainActivity.this, FoodListActivity.class);
