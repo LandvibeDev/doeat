@@ -52,7 +52,7 @@
         <LinearLayout
             android:id="@+id/layout_menu"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="@color/light_gray"
             android:orientation="horizontal">
@@ -70,8 +70,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/home_icon" />
             </RelativeLayout>
 
@@ -88,8 +88,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/sns_icon"
                     />
 
@@ -108,8 +108,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/list_icon" />
 
             </RelativeLayout>
@@ -127,8 +127,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/like_icon" />
 
             </RelativeLayout>
@@ -146,8 +146,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginRight="17dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@mipmap/profile_icon" />
 
             </RelativeLayout>
