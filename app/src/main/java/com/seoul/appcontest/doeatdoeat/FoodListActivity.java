@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,9 +41,7 @@ public class FoodListActivity extends Activity {
 
         ListViewAdapter adapter=new ListViewAdapter();
         _listView.setAdapter(adapter);
-
         _title.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
-
 
         if(menuNum==R.id.menu_rice){
             _title.setText("Rice");
@@ -58,6 +57,13 @@ public class FoodListActivity extends Activity {
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.dakbal),"닭발","닭발입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.galbizzim),"갈비찜","갈비찜입니다");
         }
+
+        _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                goToNext();
+            }
+        });
 
 
 
@@ -82,6 +88,13 @@ public class FoodListActivity extends Activity {
 
     public void goToMain(){
         Intent i= new Intent(FoodListActivity.this,MainActivity.class);
+        i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
+        finish();
+    }
+    public void goToNext(){
+        Intent i=new Intent(FoodListActivity.this,FoodListActivity2.class);
         i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
