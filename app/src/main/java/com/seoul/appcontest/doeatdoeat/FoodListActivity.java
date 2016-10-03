@@ -24,12 +24,16 @@ import butterknife.InjectView;
  */
 public class FoodListActivity extends Activity {
 
-    @InjectView(R.id.btn_back)
-    Button _btnBack;
-    @InjectView(R.id.list_food)
-    ListView _listView;
-    @InjectView(R.id.list_title)
-    TextView _title;
+    @InjectView(R.id.btn_top) Button _homeButton;
+    @InjectView(R.id.btn_tradi) Button _matchtButton;
+    @InjectView(R.id.btn_list) Button _listButton;
+    @InjectView(R.id.btn_favorite) Button _favoriteButton;
+    @InjectView(R.id.btn_profile) Button _profileButton;
+
+    @InjectView(R.id.btn_back) Button _btnBack;
+    @InjectView(R.id.list_food) ListView _listView;
+    @InjectView(R.id.list_title) TextView _title;
+
 
     public static int menuNum;
 
@@ -48,6 +52,12 @@ public class FoodListActivity extends Activity {
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.nureung),"누릉밥","누릉밥입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.bibimbap),"비빔밥","비빔밥입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.squidrice),"오징어덮밥","오징어덮밥입니다");
+        }else if(menuNum==R.id.menu_noodle){
+            _title.setText("Nodle");
+
+        }else if(menuNum==R.id.menu_soup){
+            _title.setText("Soup");
+
         }else if(menuNum==R.id.menu_meat){
             _title.setText("Meat");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.samgyupsal),"삼겹살","삼겹살입니다");
@@ -56,6 +66,21 @@ public class FoodListActivity extends Activity {
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.yukhwae),"육회","육회입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.dakbal),"닭발","닭발입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.galbizzim),"갈비찜","갈비찜입니다");
+        }else if(menuNum==R.id.menu_fish){
+            _title.setText("Fish");
+
+        }else if(menuNum==R.id.menu_drink){
+            _title.setText("Drink");
+
+        }else if(menuNum==R.id.menu_dessert){
+            _title.setText("Dessert");
+
+        }else if(menuNum==R.id.menu_street){
+            _title.setText("Street");
+
+        }else{
+            //menuNumm == R.id.menu_all
+            _title.setText("All");
         }
 
         _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

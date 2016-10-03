@@ -4,265 +4,265 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
-        android:orientation="vertical"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="125dp"-->
+        <!--android:orientation="vertical"-->
+        <!--&gt;-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="1"-->
+            <!--&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
 
-                <ImageButton
-                    android:id="@+id/menu_all"
-                    android:background="@mipmap/main_all_icon"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="All"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-                <ImageButton
-                    android:id="@+id/menu_rice"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_rice_icon"
-                    android:layout_gravity="center"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Rice"
-                    android:textSize="17dp"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:id="@+id/menu_noodle"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_noodles_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Noodle"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_marginTop="50dp"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:id="@+id/menu_soup"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_soup_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Soup"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:id="@+id/menu_meat"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_meat_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Meat"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:id="@+id/menu_fish"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_fish_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Fish"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_marginTop="50dp"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:id="@+id/menu_drink"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_pint_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Fish"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
-
-                <ImageButton
-                    android:id="@+id/menu_dessert"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_icecream_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Dessert"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_all"-->
+                    <!--android:background="@mipmap/main_all_icon"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="All"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
 
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                >
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_rice"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_rice_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
 
-                <ImageButton
-                    android:id="@+id/menu_street"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@mipmap/main_street_icon"
-                    android:layout_gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.JUA"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Street"
-                    android:textSize="17dp"
-                    />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Rice"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_noodle"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_noodles_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Noodle"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_soup"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_soup_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Soup"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_meat"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_meat_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Meat"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_fish"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_fish_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Fish"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_drink"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_pint_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Fish"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_dessert"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_icecream_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Dessert"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
 
 
-        </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
 
-    </LinearLayout>
+                <!--<ImageButton-->
+                    <!--android:id="@+id/menu_street"-->
+                    <!--android:layout_width="60dp"-->
+                    <!--android:layout_height="60dp"-->
+                    <!--android:background="@mipmap/main_street_icon"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textAppearance="@style/TextAppearance.JUA"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Street"-->
+                    <!--android:textSize="17dp"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+
+
+        <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
 
 
     <RelativeLayout
@@ -310,6 +310,266 @@
 
         </RelativeLayout>
 
+        <!-- 중간 메뉴-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_all"
+                        android:background="@mipmap/main_all_icon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="All"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+                        android:id="@+id/menu_rice"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_rice_icon"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Rice"
+                        android:textSize="17dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_noodle"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_noodles_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Noodle"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_soup"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_soup_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Soup"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_meat"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_meat_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Meat"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_fish"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_fish_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Fish"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_drink"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_pint_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Drink"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_dessert"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_icecream_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Dessert"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/menu_street"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@mipmap/main_street_icon"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Street"
+                        android:textSize="17dp"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
         <!-- 하단 바-->
         <LinearLayout
             android:id="@+id/layout_menu"
@@ -327,14 +587,14 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_home"
+                    android:id="@+id/btn_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/home_icon" />
+                    android:background="@mipmap/btm_star_icon" />
             </RelativeLayout>
 
             <!-- 매칭 버튼 -->
@@ -345,14 +605,14 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_match"
+                    android:id="@+id/btn_tradi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/season_icon"
+                    android:background="@mipmap/btm_traditional_icon"
                     />
 
             </RelativeLayout>
@@ -372,7 +632,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/list_icon" />
+                    android:background="@mipmap/btm_list_icon" />
 
             </RelativeLayout>
 
@@ -391,7 +651,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/like_icon" />
+                    android:background="@mipmap/btm_like_icon" />
 
             </RelativeLayout>
 
@@ -410,7 +670,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/profile_icon" />
+                    android:background="@mipmap/btm_profile_icon" />
 
             </RelativeLayout>
         </LinearLayout>

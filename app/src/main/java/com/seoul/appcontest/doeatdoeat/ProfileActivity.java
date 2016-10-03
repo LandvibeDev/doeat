@@ -26,8 +26,8 @@ public class ProfileActivity extends FragmentActivity {
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
 
-    @InjectView(R.id.btn_home) Button _homeButton;
-    @InjectView(R.id.btn_match) Button _matchtButton;
+    @InjectView(R.id.btn_top) Button _homeButton;
+    @InjectView(R.id.btn_tradi) Button _matchtButton;
     @InjectView(R.id.btn_list) Button _listButton;
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;

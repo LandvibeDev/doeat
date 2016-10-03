@@ -65,14 +65,14 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_home"
+                    android:id="@+id/btn_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/home_icon" />
+                    android:background="@mipmap/btm_star_icon" />
             </RelativeLayout>
 
             <!-- 매칭 버튼 -->
@@ -83,14 +83,14 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_match"
+                    android:id="@+id/btn_tradi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/season_icon"
+                    android:background="@mipmap/btm_traditional_icon"
                     />
 
             </RelativeLayout>
@@ -110,7 +110,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/list_icon" />
+                    android:background="@mipmap/btm_list_icon" />
 
             </RelativeLayout>
 
@@ -129,7 +129,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/like_icon" />
+                    android:background="@mipmap/btm_like_icon" />
 
             </RelativeLayout>
 
@@ -148,7 +148,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/profile_icon" />
+                    android:background="@mipmap/btm_profile_icon" />
 
             </RelativeLayout>
         </LinearLayout>

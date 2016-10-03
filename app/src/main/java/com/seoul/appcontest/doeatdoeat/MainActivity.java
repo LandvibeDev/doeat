@@ -39,16 +39,11 @@ public class MainActivity extends FragmentActivity {
     private long backPressedTime = 0;
     private ListViewAdapter adapter=new ListViewAdapter();
 
-    @InjectView(R.id.btn_home)
-    Button _homeButton;
-    @InjectView(R.id.btn_match)
-    Button _matchtButton;
-    @InjectView(R.id.btn_list)
-    Button _listButton;
-    @InjectView(R.id.btn_favorite)
-    Button _favoriteButton;
-    @InjectView(R.id.btn_profile)
-    Button _profileButton;
+    @InjectView(R.id.btn_top) Button _topButton;
+    @InjectView(R.id.btn_tradi) Button _tradiButton;
+    @InjectView(R.id.btn_list) Button _listButton;
+    @InjectView(R.id.btn_favorite) Button _favoriteButton;
+    @InjectView(R.id.btn_profile) Button _profileButton;
 
 
     @Override
