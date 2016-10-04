@@ -3,17 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <VideoView
-        android:id="@+id/foodview"
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_player"
         android:layout_width="match_parent"
-        android:layout_height="173dp"
-        />
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="시작"
-        android:onClick="StartButton"
-        />
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="5dp" />
+
 
 </LinearLayout>

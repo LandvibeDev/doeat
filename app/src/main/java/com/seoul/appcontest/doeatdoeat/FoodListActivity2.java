@@ -1,73 +1,108 @@
 package com.seoul.appcontest.doeatdoeat;
 
 import android.app.Activity;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.view.View;
-import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.Toast;
-import android.widget.VideoView;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayer.ErrorReason;
+import com.google.android.youtube.player.YouTubePlayer.PlaybackEventListener;
+import com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener;
+import com.google.android.youtube.player.YouTubePlayer.Provider;
+import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 /**
  * Created by a on 2016-09-29.
  */
-public class FoodListActivity2 extends Activity{
-    @InjectView(R.id.foodview)
-    VideoView videoView;
-    @InjectView(R.id.btn_start)
-    Button btnStart;
+public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+    public static final String API_KEY = "AIzaSyDK9ZJVkfyycnlZh1zGd2riD2hS0Zxvafk";//사용자가 얻은 API Key을 입력하면 된다.(개발자 콘솔에 얻은 것.)
+
+    //http://youtu.be/<VIDEO_ID>
+    public static final String VIDEO_ID = "tsjooxxZxFc";
+    private static final int RQS_ErrorDialog = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /** attaching layout xml **/
         setContentView(R.layout.activity_foodlist2);
         ButterKnife.inject(this);
-
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference storageRef = storage.getReferenceFromUrl("gs://videoprac-bd3ea.appspot.com");
-        storageRef.child("bingsu.mp4").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                videoView.setVideoURI(uri);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                System.out.println("Failure");
-            }
-        });
-
-        MediaController controller = new MediaController(FoodListActivity2.this);
-        videoView.setMediaController(controller);
-
-        videoView.requestFocus();
-
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                Toast.makeText(FoodListActivity2.this,
-                        "동영상이 준비되었습니다. \n'시작' 버튼을 누르세요", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    public void StartButton(View v) {
-        playVideo();
+        /** Initializing YouTube player view **/
+        YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
+        youTubePlayerView.initialize(API_KEY, this);
     }
 
-    private void playVideo() {
-        //비디오를 처음부터 재생할 때 0으로 시작(파라메터 sec)
-        videoView.seekTo(0);
-        videoView.start();
+    @Override
+    public void onInitializationFailure(Provider provider, YouTubeInitializationResult result) {
+        if (result.isUserRecoverableError()) {
+            result.getErrorDialog(this, RQS_ErrorDialog).show();
+        } else {
+            Toast.makeText(this,
+                    "YouTubePlayer.onInitializationFailure(): " + result.toString(),
+                    Toast.LENGTH_LONG).show();
+        }
     }
+
+    @Override
+    public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
+        /** add listeners to YouTubePlayer instance **/
+        player.setPlayerStateChangeListener(playerStateChangeListener);
+        player.setPlaybackEventListener(playbackEventListener);
+        /** Start buffering **/
+        if (!wasRestored) {
+            player.cueVideo(VIDEO_ID);
+        }
+    }
+
+    private PlaybackEventListener playbackEventListener = new PlaybackEventListener() {
+        @Override
+        public void onBuffering(boolean arg0) {
+        }
+
+        @Override
+        public void onPaused() {
+        }
+
+        @Override
+        public void onPlaying() {
+        }
+
+        @Override
+        public void onSeekTo(int arg0) {
+        }
+
+        @Override
+        public void onStopped() {
+        }
+    };
+    private PlayerStateChangeListener playerStateChangeListener = new PlayerStateChangeListener() {
+        @Override
+        public void onAdStarted() {
+        }
+
+        @Override
+        public void onError(ErrorReason arg0) {
+        }
+
+        @Override
+        public void onLoaded(String arg0) {
+        }
+
+        @Override
+        public void onLoading() {
+        }
+
+        @Override
+        public void onVideoEnded() {
+        }
+
+        @Override
+        public void onVideoStarted() {
+        }
+    };
 }

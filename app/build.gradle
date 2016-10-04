@@ -41,6 +41,8 @@ dependencies {
     //font
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
+    //youtube
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
 }
 
 apply plugin: 'com.google.gms.google-services'
