@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,6 +34,7 @@ public class FoodListActivity extends Activity {
     @InjectView(R.id.btn_back) Button _btnBack;
     @InjectView(R.id.list_food) ListView _listView;
     @InjectView(R.id.list_title) TextView _title;
+
 
 
     public static int menuNum;
@@ -122,7 +124,7 @@ public class FoodListActivity extends Activity {
         Intent i=new Intent(FoodListActivity.this,FoodListActivity2.class);
         i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
-        overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
+        overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
         finish();
     }
 
