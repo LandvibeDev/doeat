@@ -96,6 +96,7 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
+    // 메인 메뉴 아이콘 클릭 이벤트
     @OnClick({R.id.menu_all,R.id.menu_rice,R.id.menu_noodle,
             R.id.menu_soup,R.id.menu_meat,R.id.menu_fish,
             R.id.menu_drink,R.id.menu_dessert,R.id.menu_street})

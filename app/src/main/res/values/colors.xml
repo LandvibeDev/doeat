@@ -11,8 +11,10 @@
     <color name="black">#000000</color>
     <color name="gray">#999999</color>
     <color name="light_gray">#d8d8d8</color>
+    <color name="dark_gray">#FF4F4F4F</color>
     <color name="red">#FF0000</color>
     <color name="darker_red">#C10001</color>
+    <color name="light_red">#FFD33D40</color>
 
 
     <color name="input_login">#222222</color>

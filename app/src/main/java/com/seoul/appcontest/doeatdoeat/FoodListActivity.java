@@ -47,13 +47,15 @@ public class FoodListActivity extends Activity {
         _listView.setAdapter(adapter);
         _title.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
 
+
+        // 메인에서 선택한 메뉴에 따라 보이는 List 설정
         if(menuNum==R.id.menu_rice){
             _title.setText("Rice");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.nureung),"누릉밥","누릉밥입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.bibimbap),"비빔밥","비빔밥입니다");
             adapter.addItem(ContextCompat.getDrawable(this,R.drawable.squidrice),"오징어덮밥","오징어덮밥입니다");
         }else if(menuNum==R.id.menu_noodle){
-            _title.setText("Nodle");
+            _title.setText("Noodle");
 
         }else if(menuNum==R.id.menu_soup){
             _title.setText("Soup");

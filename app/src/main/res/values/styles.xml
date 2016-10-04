@@ -12,4 +12,9 @@
         <!-- Custom Attr-->
         <item name="fontPath">fonts/BMJUA_ttf.ttf</item>
     </style>
+
+    <style name="TextAppearance.DOHYEON" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/BMDOHYEON_ttf.ttf</item>
+    </style>
 </resources>
