@@ -40,7 +40,7 @@ public class MainActivity extends FragmentActivity {
     private ListViewAdapter adapter=new ListViewAdapter();
 
     @InjectView(R.id.btn_top) Button _topButton;
-    @InjectView(R.id.btn_tradi) Button _tradiButton;
+    @InjectView(R.id.btn_tradi) Button _basicButton;
     @InjectView(R.id.btn_list) Button _listButton;
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
@@ -69,6 +69,17 @@ public class MainActivity extends FragmentActivity {
         }
 
 
+        _basicButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "베이직 화면으로 이동", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, BasicActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

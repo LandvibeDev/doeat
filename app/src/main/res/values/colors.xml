@@ -15,6 +15,12 @@
     <color name="red">#FF0000</color>
     <color name="darker_red">#C10001</color>
     <color name="light_red">#FFD33D40</color>
+    <color name="mid_red">#b72730</color>
+    <color name="mustard_yellow">#ecaf38</color>
+    <color name="dark_green">#2a5043</color>
+    <color name="sea_blue">#0087be</color>
+    <color name="light_pink">#ce919b</color>
+    <color name="dark_brown">#47423d</color>
 
 
     <color name="input_login">#222222</color>

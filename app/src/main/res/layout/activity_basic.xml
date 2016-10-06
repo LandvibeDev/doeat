@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -31,33 +30,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/top_label_category"
+                    android:text="Basic Manners"
                     android:textColor="@color/gray"
                     android:textAppearance="@style/TextAppearance.JUA"/>
 
             </LinearLayout>
 
-            <Button
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="40dp"
-                android:background="@mipmap/menu_icon" />
-
         </RelativeLayout>
 
-        <!-- 중간 메뉴-->
+        <!-- 중간 카테고리 -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_below="@+id/layout_topbar"
             android:layout_above="@+id/layout_menu"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,249 +53,215 @@
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    >
-
-                    <ImageButton
-                        android:id="@+id/menu_all"
-                        android:background="@mipmap/main_all_icon"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="All"
-                        android:textSize="17dp"
-                        />
-                </LinearLayout>
 
 
                 <LinearLayout
+                    android:id="@+id/seouls_pick"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:background="@color/mid_red"
                     >
-                    <ImageButton
-                        android:id="@+id/menu_rice"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_rice_icon"
-                        android:layout_gravity="center"
-                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Rice"
-                        android:textSize="17dp"
+                        android:text="Seoul's Pick"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.JUA"
                         />
+
+                    <ImageButton
+                        android:id="@+id/seouls_pick_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@mipmap/basic_seoul"
+                        />
+
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/tradi_korea"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_weight="1"
+                    android:background="@color/mustard_yellow"
                     >
 
-                    <ImageButton
-                        android:id="@+id/menu_noodle"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_noodles_icon"
-                        android:layout_gravity="center"
-                        />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Noodle"
-                        android:textSize="17dp"
+                        android:text="Traditional KoreanStyle Dining"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.JUA"
+                        android:id="@+id/textView" />
+
+                    <ImageButton
+                        android:id="@+id/tradi_korea_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:background="@mipmap/basic_korea"
                         />
+
                 </LinearLayout>
 
             </LinearLayout>
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="1"
-                android:layout_marginTop="30dp"
                 >
+
+
                 <LinearLayout
+                    android:id="@+id/dining"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_weight="1"
+                    android:background="@color/dark_green"
                     >
 
-                    <ImageButton
-                        android:id="@+id/menu_soup"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_soup_icon"
-                        android:layout_gravity="center"
-                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Soup"
-                        android:textSize="17dp"
+                        android:text="Dining Etiquette"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.JUA"
                         />
+
+                    <ImageButton
+                        android:id="@+id/dining_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@mipmap/basic_dining"
+                        />
+
+
+
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/drinking"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_weight="1"
+                    android:background="@color/sea_blue"
                     >
 
-                    <ImageButton
-                        android:id="@+id/menu_meat"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_meat_icon"
-                        android:layout_gravity="center"
-                        />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Meat"
-                        android:textSize="17dp"
+                        android:text="Drinking Etiquette"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.JUA"
                         />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    >
 
                     <ImageButton
-                        android:id="@+id/menu_fish"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_fish_icon"
-                        android:layout_gravity="center"
+                        android:id="@+id/drinking_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@mipmap/basic_drink"
                         />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="Fish"
-                        android:textSize="17dp"
-                        />
+
                 </LinearLayout>
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="1"
-                android:layout_marginTop="30dp"
                 >
                 <LinearLayout
+                    android:id="@+id/chopsticks"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_weight="1"
+                    android:background="@color/light_pink"
                     >
 
-                    <ImageButton
-                        android:id="@+id/menu_drink"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_pint_icon"
-                        android:layout_gravity="center"
-                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Drink"
-                        android:textSize="17dp"
+                        android:text="How to Use Chopsticks"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.JUA"
                         />
+
+                    <ImageButton
+                        android:id="@+id/chopsticks_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@mipmap/basic_chopsticks"
+                        />
+
+
+
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/order"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_weight="1"
+                    android:background="@color/dark_brown"
                     >
 
-                    <ImageButton
-                        android:id="@+id/menu_dessert"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_icecream_icon"
-                        android:layout_gravity="center"
-                        />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Dessert"
-                        android:textSize="17dp"
+                        android:text="How to Order in Restaurant?"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:textAppearance="@style/TextAppearance.JUA"
                         />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    >
 
                     <ImageButton
-                        android:id="@+id/menu_street"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@mipmap/main_street_icon"
-                        android:layout_gravity="center"
+                        android:id="@+id/order_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@mipmap/basic_order"
                         />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.JUA"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="Street"
-                        android:textSize="17dp"
-                        />
-                </LinearLayout>
 
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -321,7 +275,7 @@
             android:background="@color/light_gray"
             android:orientation="horizontal">
 
-            <!-- 홈 버튼 -->
+            <!-- star 버튼 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -339,7 +293,7 @@
                     android:background="@mipmap/btm_star_icon" />
             </RelativeLayout>
 
-            <!-- 매칭 버튼 -->
+            <!-- 태극기 버튼-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -359,7 +313,7 @@
 
             </RelativeLayout>
 
-            <!-- 리스트 버튼 -->
+            <!-- 수저 버튼 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
