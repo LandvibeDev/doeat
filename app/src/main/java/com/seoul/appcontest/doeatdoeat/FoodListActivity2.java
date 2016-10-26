@@ -1,7 +1,9 @@
 package com.seoul.appcontest.doeatdoeat;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
@@ -23,7 +25,7 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
     public static final String API_KEY = "AIzaSyDK9ZJVkfyycnlZh1zGd2riD2hS0Zxvafk";//사용자가 얻은 API Key을 입력하면 된다.(개발자 콘솔에 얻은 것.)
 
     //http://youtu.be/<VIDEO_ID>
-    public static final String VIDEO_ID = "tsjooxxZxFc";
+    String VIDEO_ID = FoodListActivity.menuStr;
     private static final int RQS_ErrorDialog = 1;
 
     @Override
@@ -105,4 +107,14 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         public void onVideoStarted() {
         }
     };
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { // 백 버튼
+                Intent i= new Intent(FoodListActivity2.this,FoodListActivity.class);
+                i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
+                finish();
+        }
+        return true;
+    }
 }
