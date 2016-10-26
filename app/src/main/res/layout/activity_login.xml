@@ -90,7 +90,8 @@
                 android:textColor="@color/black"
                 android:layout_marginRight="10dp"
                 android:textSize="15dp"
-                android:textAppearance="@style/TextAppearance.JUA" />
+                android:textAppearance="@style/TextAppearance.JUA"
+                android:id="@+id/textView2" />
 
             <Button
                 android:id="@+id/btnFacebookLogin"
