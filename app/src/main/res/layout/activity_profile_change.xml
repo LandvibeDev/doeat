@@ -9,17 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- 상단 바-->
-
-        <!-- 중간 메뉴-->
 
         <RelativeLayout
             android:id="@+id/layout_topbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
+            android:background="@color/light_red"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/light_red">
+            android:layout_alignParentStart="true">
 
 
             <LinearLayout
@@ -28,7 +25,8 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:id="@+id/linearLayout">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -41,35 +39,53 @@
                     android:layout_height="wrap_content"
                     android:text="@string/top_label_profile_change"
                     android:textColor="@color/white"
-                    android:textAppearance="@style/TextAppearance.JUA"/>
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_back"
-                android:layout_width="30dp"
-                android:layout_height="27dp"
-                android:background="@mipmap/back_icon"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
+                android:id="@+id/btn_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/light_red"
+                android:text="확인"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.JUA"
+                android:layout_marginRight="10dp"
                 android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/btn_back" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/white_back_icon"
+                android:layout_marginLeft="10dp"
+                android:layout_alignBottom="@+id/linearLayout"
                 android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 
+        <!-- 중간 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_centerVertical="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/layout_topbar"
+            android:layout_marginTop="20dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="변경할 이름을 입력해 주세요."
                 android:textColor="@color/gray"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="15dp"
                 android:textAppearance="@style/TextAppearance.JUA"
                 />
@@ -84,11 +100,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:hint="For Debug"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
-                    android:drawablePadding="10dp"
                     android:textAppearance="@style/TextAppearance.JUA"
+                    android:drawablePadding="10dp"
                     />
             </android.support.design.widget.TextInputLayout>
 
@@ -97,7 +112,8 @@
                 android:layout_height="wrap_content"
                 android:text="변경할 이메일을 입력해 주세요."
                 android:textColor="@color/gray"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="15dp"
                 android:textAppearance="@style/TextAppearance.JUA"
                 />
@@ -112,7 +128,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:hint="For Debug"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:drawablePadding="10dp"

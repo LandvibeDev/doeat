@@ -1,7 +1,9 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -85,13 +87,6 @@ public class LoginActivity extends FragmentActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-//                .setDefaultFontPath("fonts/BMJUA_ttf.ttf")
-//                .setFontAttrId(R.attr.fontPath)
-//                .build()
-//        );
-
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 
@@ -118,6 +113,7 @@ public class LoginActivity extends FragmentActivity
             public void onClick(View view) {
                 LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this,
                         Arrays.asList("public_profile", "user_friends","email"));
+
             }
         });
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -147,7 +143,8 @@ public class LoginActivity extends FragmentActivity
                                             }
                                         }
                                     });
-
+                            CheckTypesTask task = new CheckTypesTask();
+                            task.execute();
                             setResult(RESULT_OK);
                             //finish();
                         }
@@ -231,6 +228,8 @@ public class LoginActivity extends FragmentActivity
                                 }
                             }
                         });
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
             }
         });
 
@@ -296,6 +295,8 @@ public class LoginActivity extends FragmentActivity
                             }
                         }
                     });
+            CheckTypesTask task = new CheckTypesTask();
+            task.execute();
             //mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             //updateUI(true);
         } else {
@@ -307,5 +308,44 @@ public class LoginActivity extends FragmentActivity
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         //여긴 뭐해야되지....
+    }
+
+    private class CheckTypesTask extends AsyncTask<Void, Void, Void> {
+
+        ProgressDialog asyncDialog = new ProgressDialog(LoginActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로그인 중입니다..");
+
+            // show dialog
+            asyncDialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            try {
+                for (int i = 0; i < 10; i++) {
+                    //asyncDialog.setProgress(i * 30);
+                    Thread.sleep(500);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (!LoginActivity.this.isFinishing()&&(asyncDialog != null)) {
+                if (asyncDialog.isShowing()) {
+                    asyncDialog.dismiss();
+                    asyncDialog=null;
+                }
+            }
+            super.onPostExecute(result);
+        }
     }
 }
