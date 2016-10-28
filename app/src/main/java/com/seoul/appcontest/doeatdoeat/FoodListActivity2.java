@@ -20,6 +20,8 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import java.util.List;
+
 /**
  * Created by a on 2016-09-29.
  */
@@ -43,7 +45,7 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         _title2.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
         _explainTitle.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
         _explainExplain.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
-        _explainTitle.setText("음식이름");
+        _explainExplain.setText(getString(R.string.exp_bibimbap));
         if(FoodListActivity.menuNum==R.id.menu_all){
             _title2.setText("All");
         }else if(FoodListActivity.menuNum==R.id.menu_rice){
@@ -63,6 +65,7 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         }else if(FoodListActivity.menuNum==R.id.menu_street){
             _title2.setText("Street");
         }
+        _explainTitle.setText(FoodListActivity.menuStr2);
         /** Initializing YouTube player view **/
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
         youTubePlayerView.initialize(API_KEY, this);
