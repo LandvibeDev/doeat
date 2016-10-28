@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -52,7 +51,7 @@ public class ProfileActivity extends FragmentActivity {
     @InjectView(R.id.profile_email) TextView _emailText;
 
     @InjectView(R.id.btn_top) Button _topButton;
-    @InjectView(R.id.btn_tradi) Button _basicButton;
+    @InjectView(R.id.btn_tradi) Button _tipsButton;
     @InjectView(R.id.btn_list) Button _listButton;
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
@@ -191,24 +190,33 @@ public class ProfileActivity extends FragmentActivity {
         });
 
 
-        //베이직 화면으로 이동
-        _basicButton.setOnClickListener(new View.OnClickListener(){
+
+        //Top5 화면으로 이동
+        _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "베이직 화면으로 이동", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ProfileActivity.this, BasicActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, TopActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
             }
         });
-
+        //Tips 화면으로 이동
+        _tipsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, TipsActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         // 메인 화면으로 이동
         _listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "메인 화면으로 이동", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
