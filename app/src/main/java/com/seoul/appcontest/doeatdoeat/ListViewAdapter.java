@@ -1,6 +1,8 @@
 package com.seoul.appcontest.doeatdoeat;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import java.util.ArrayList;
 
@@ -30,11 +33,13 @@ public class ListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
         final Context context = parent.getContext();
+        // "listview_item" Layout을 inflate하여 convertView 참조 획득.\
 
-        // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.layout_listview, parent, false);
+
+
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
@@ -49,6 +54,8 @@ public class ListViewAdapter extends BaseAdapter {
         iconImageView.setImageDrawable(listViewItem.getIcon());
         titleTextView.setText(listViewItem.getTitle());
         descTextView.setText(listViewItem.getDesc());
+        titleTextView.setTypeface(Typeface.createFromAsset(titleTextView.getContext().getAssets(),"fonts/BMJUA_ttf.ttf"));
+        descTextView.setTypeface(Typeface.createFromAsset(descTextView.getContext().getAssets(),"fonts/BMJUA_ttf.ttf"));
 
         return convertView;
     }
