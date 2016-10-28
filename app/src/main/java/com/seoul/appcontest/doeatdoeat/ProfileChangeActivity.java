@@ -90,10 +90,7 @@ public class ProfileChangeActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 //키보드 숨기기
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(_nameInput.getWindowToken(), 0);
-                imm.hideSoftInputFromWindow(_emailInput.getWindowToken(), 0);
-
+                hideKeyboard();
                 Intent i= new Intent(ProfileChangeActivity.this,ProfileActivity.class);
                 i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -114,6 +111,8 @@ public class ProfileChangeActivity extends FragmentActivity {
                     changeEmail(user, inputEmail);
                 }
 
+                //키보드 숨기기
+                hideKeyboard();
                 Log.d(TAG,"view change");
                 Intent i= new Intent(ProfileChangeActivity.this,ProfileActivity.class);
                 i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
@@ -164,6 +163,12 @@ public class ProfileChangeActivity extends FragmentActivity {
                         }
                     }
                 });
+    }
+    public void hideKeyboard(){
+        //키보드 숨기기
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(_nameInput.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(_emailInput.getWindowToken(), 0);
     }
 
     @Override

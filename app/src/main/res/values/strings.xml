@@ -39,4 +39,27 @@
 
     <string name="server_client_id">338794080483-9o7pq5b0t0lci9m3634ruacga8e3u24i.apps.googleusercontent.com</string>
 
+    <string name="about_us">About us</string>
+    <string name="about_us_app">‘밥 위에 놓인 나물과 양념장을 비벼서 먹는다.’한국인들에겐 당연한 비빔밥의 식사법이다. 하지만 세계적으로 알려진 비빔밥의 인지도에 비해 제대로 된 식사법을 몰라 잘못된 방식으로 먹는 외국인들이 많다. ‘끓는 물에 면을 넣고 면이 익으면 물을 따라 버리고 스프를 섞는다.’짜장라면의 제조법도 마찬가지이다. 한글로만 기재된 제조법에 많은 외국인들이 만드는 데 어려움을 겪는다. 이에 레토르트 식품부터 외식음식까지 다양한 스펙트럼의 한국 식품의 제조법 및 식사법을 외국인들에게 알려주고자 앱을 고안했다.
+ 최근 서울을 방문하는 젊은 외국인 관광객이 증가하는 추세이다. 이들이 서울에서현지인들이 즐겨 먹는 곳에서 한국 음식을 제대로 맛볼 수 있도록 서울의 유명 음식점과 위치를 함께 첨부하였다. 또 이들이 외국인이라는 이유로 식당에서 부당한 대우를 받지 않도록 서울의 착한 음식점으로 지정된 곳 위주로 선정하였다. 이 앱을 통해 외국인이 올바른 방법으로 한국 음식을 즐길 수 있기를 바라며, 한국음식에 대한 관심과 애정이 늘어나길 기대한다. 또 외국인이 서울의 합리적인 식당에서 식사를 함으로써 좋은 추억도 쌓고 서울에 대해 긍정적인 인식을 갖게 되길 바란다.</string>
+    <string name="about_us_kh_name">김건희</string>
+    <string name="about_us_kh_email">kimkh6554@gmail.com</string>
+    <string name="about_us_kh_univ">인하대학교 컴퓨터정보공학과</string>
+
+    <string name="about_us_js_name">김재승</string>
+    <string name="about_us_js_email">pub60@hanmail.net</string>
+    <string name="about_us_js_univ">인하대학교 컴퓨터정보공학과</string>
+
+    <string name="about_us_hw_name">김희원</string>
+    <string name="about_us_hw_email">heewkim92@gmail.com</string>
+    <string name="about_us_hw_univ">Univ of Iowa Information System</string>
+
+    <string name="about_us_kr_name">김규리</string>
+    <string name="about_us_kr_email">kimkr357@gmail.com</string>
+    <string name="about_us_kr_univ">Univ of Iowa Business Analytics</string>
+
+    <string name="about_us_hs_name">신혜수</string>
+    <string name="about_us_hs_email">shinhesoo@naver.com</string>
+    <string name="about_us_hs_univ">덕성여자대학교 정보통계학과</string>
+
 </resources>
