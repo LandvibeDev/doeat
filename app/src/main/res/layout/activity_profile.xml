@@ -250,7 +250,7 @@
             </View>
 
             <LinearLayout
-                android:id="@+id/profile_layout_settings"
+                android:id="@+id/profile_layout_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -265,13 +265,13 @@
                     android:layout_gravity="center_vertical"
                     />
                 <TextView
-                    android:id="@+id/profile_settings"
+                    android:id="@+id/profile_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="Other Settings"
+                    android:text="Chnge Password"
                     android:textColor="@color/dark_gray"
                     android:textSize="15dp"
                     android:textAppearance="@style/TextAppearance.JUA" />

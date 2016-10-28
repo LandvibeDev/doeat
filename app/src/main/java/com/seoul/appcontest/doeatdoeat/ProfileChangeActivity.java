@@ -82,13 +82,18 @@ public class ProfileChangeActivity extends FragmentActivity {
             _emailInput.requestFocus();
             _emailInput.setSelection(_emailInput.getText().length());
         }
-        //키보드 보이게 하는 부분
+        //키보드 보이기
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
         _backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //키보드 숨기기
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(_nameInput.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(_emailInput.getWindowToken(), 0);
+
                 Intent i= new Intent(ProfileChangeActivity.this,ProfileActivity.class);
                 i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -161,15 +166,15 @@ public class ProfileChangeActivity extends FragmentActivity {
                 });
     }
 
-
-//    public boolean dispatchKeyEvent(KeyEvent event) {
-//        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { // 백 버튼
-//            Intent i= new Intent(ProfileChangeActivity.this,ProfileActivity.class);
-//            i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(i);
-//            overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
-//            finish();
-//        }
-//        return true;
-//    }
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { // 백 버튼
+            Intent i= new Intent(ProfileChangeActivity.this,ProfileActivity.class);
+            i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
+            finish();
+        }
+        return super.dispatchKeyEvent(event);
+    }
 }

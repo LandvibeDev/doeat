@@ -43,6 +43,7 @@ public class ProfileActivity extends FragmentActivity {
 
     @InjectView(R.id.profile_layout_username) LinearLayout _nameLayout;
     @InjectView(R.id.profile_layout_email) LinearLayout _emailLayout;
+    @InjectView(R.id.profile_layout_password) LinearLayout _passwordLayout;
 
     @InjectView(R.id.profile_photo) ImageButton _photoImage;
     @InjectView(R.id.profile_top_username) TextView _topnameText;
@@ -124,7 +125,7 @@ public class ProfileActivity extends FragmentActivity {
             Log.d(TAG, "onAuthStateChanged:signed_out");
         }
 
-        // 프로필 변경
+        // 이름 변경
         _nameLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -138,6 +139,8 @@ public class ProfileActivity extends FragmentActivity {
                         1);
             }
         });
+
+        // 이메일 변경
         _emailLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +152,19 @@ public class ProfileActivity extends FragmentActivity {
                 changeProfile(_nameText.getText().toString(),
                         _emailText.getText().toString(),
                         2);
+            }
+        });
+        //패스워드 변경
+        _passwordLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProfileActivity.this, "패스워드 변경 페이지로 이동", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(ProfileActivity.this,PasswordChangeActivity.class);
+                i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
+                finish();
+
             }
         });
 
@@ -239,4 +255,5 @@ public class ProfileActivity extends FragmentActivity {
         overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
         finish();
     }
+
 }

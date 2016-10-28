@@ -31,6 +31,8 @@
 
         <activity android:name=".ProfileChangeActivity"></activity>
 
+        <activity android:name=".PasswordChangeActivity"></activity>
+
         <activity android:name=".FoodListActivity"></activity>
 
         <activity android:name=".FoodListActivity2"></activity>
