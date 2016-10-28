@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+    <RelativeLayout
+        android:id="@+id/front_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!-- 상단 바-->
+        <RelativeLayout
+            android:id="@+id/layout_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/light_red"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/linearLayout">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/spoon_white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_us"
+                    android:textColor="@color/white"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@mipmap/white_back_icon"
+                android:layout_marginLeft="10dp"
+                android:layout_alignBottom="@+id/linearLayout"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+        <!-- 중간 메뉴-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_topbar"
+            android:layout_above="@+id/layout_menu"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="두잇두잇"
+                android:textColor="@color/light_red"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_app"
+                android:textColor="@color/gray"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기획/개발"
+                android:textColor="@color/light_red"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA"
+                android:id="@+id/textView4" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:id="@+id/kh_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/about_us_kh_name"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/kh_univ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/kh_name"
+                    android:text="@string/about_us_kh_univ"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/kh_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/kh_univ"
+                    android:text="@string/about_us_kh_email"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/kh_email"
+                    android:src="@mipmap/raindrop"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:id="@+id/js_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/about_us_js_name"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/js_univ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/js_name"
+                    android:text="@string/about_us_js_univ"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/js_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/js_univ"
+                    android:text="@string/about_us_js_email"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/js_email"
+                    android:src="@mipmap/raindrop"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기획/디자인"
+                android:textColor="@color/light_red"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:id="@+id/kr_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/about_us_kr_name"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/kr_univ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/kr_name"
+                    android:text="@string/about_us_kr_univ"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/kr_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/kr_univ"
+                    android:text="@string/about_us_kr_email"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/kr_email"
+                    android:src="@mipmap/raindrop"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기획/콘텐츠 제작"
+                android:textColor="@color/light_red"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:id="@+id/hw_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/about_us_hw_name"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/hw_univ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/hw_name"
+                    android:text="@string/about_us_hw_univ"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/hw_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/hw_univ"
+                    android:text="@string/about_us_hw_email"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/hw_email"
+                    android:src="@mipmap/raindrop"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="30dp"
+                >
+                <TextView
+                    android:id="@+id/hs_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/about_us_hs_name"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/hs_univ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/hs_name"
+                    android:text="@string/about_us_hs_univ"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <TextView
+                    android:id="@+id/hs_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/hs_univ"
+                    android:text="@string/about_us_js_email"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:textAppearance="@style/TextAppearance.JUA"
+                    />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/hs_email"
+                    android:src="@mipmap/raindrop"
+                    />
+            </RelativeLayout>
+            
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
+

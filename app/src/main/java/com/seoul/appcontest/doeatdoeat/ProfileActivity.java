@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -43,6 +42,8 @@ public class ProfileActivity extends FragmentActivity {
 
     @InjectView(R.id.profile_layout_username) LinearLayout _nameLayout;
     @InjectView(R.id.profile_layout_email) LinearLayout _emailLayout;
+    @InjectView(R.id.profile_layout_password) LinearLayout _passwordLayout;
+    @InjectView(R.id.profile_layout_aboutus) LinearLayout _aboutusLayout;
 
     @InjectView(R.id.profile_photo) ImageButton _photoImage;
     @InjectView(R.id.profile_top_username) TextView _topnameText;
@@ -50,7 +51,7 @@ public class ProfileActivity extends FragmentActivity {
     @InjectView(R.id.profile_email) TextView _emailText;
 
     @InjectView(R.id.btn_top) Button _topButton;
-    @InjectView(R.id.btn_tradi) Button _basicButton;
+    @InjectView(R.id.btn_tradi) Button _tipsButton;
     @InjectView(R.id.btn_list) Button _listButton;
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
@@ -124,7 +125,7 @@ public class ProfileActivity extends FragmentActivity {
             Log.d(TAG, "onAuthStateChanged:signed_out");
         }
 
-        // 프로필 변경
+        // 이름 변경
         _nameLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -138,6 +139,8 @@ public class ProfileActivity extends FragmentActivity {
                         1);
             }
         });
+
+        // 이메일 변경
         _emailLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,6 +155,32 @@ public class ProfileActivity extends FragmentActivity {
             }
         });
 
+
+        // AboutUs 페이지 이동
+        _aboutusLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileActivity.this,AboutUsActivity.class);
+                i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
+                finish();
+            }
+        });
+
+        //패스워드 변경
+        _passwordLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProfileActivity.this, "패스워드 변경 페이지로 이동", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(ProfileActivity.this,PasswordChangeActivity.class);
+                i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
+                finish();
+            }
+        });
+
         // 로그아웃 실행
         _signoutButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -161,24 +190,33 @@ public class ProfileActivity extends FragmentActivity {
         });
 
 
-        //베이직 화면으로 이동
-        _basicButton.setOnClickListener(new View.OnClickListener(){
+
+        //Top5 화면으로 이동
+        _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "베이직 화면으로 이동", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ProfileActivity.this, BasicActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, TopActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
             }
         });
-
+        //Tips 화면으로 이동
+        _tipsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, TipsActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         // 메인 화면으로 이동
         _listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "메인 화면으로 이동", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -239,4 +277,5 @@ public class ProfileActivity extends FragmentActivity {
         overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
         finish();
     }
+
 }

@@ -3,11 +3,14 @@ package com.seoul.appcontest.doeatdoeat;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -17,11 +20,19 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by user on 2016-10-07.
  */
 
-public class BasicActivity extends FragmentActivity {
-    private static final String TAG = "BasicActivity";
+public class TipsActivity extends FragmentActivity {
+    private static final String TAG = "TipsActivity";
 
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
+    private FirebaseAuth auth;
+
+    @InjectView(R.id.seouls_pick) ImageButton _seoulButton;
+    @InjectView(R.id.korean_dining) ImageButton _diningButton;
+    @InjectView(R.id.using_chopsticks) ImageButton _chopstickButton;
+    @InjectView(R.id.ordering_foods) ImageButton _orderButton;
+    @InjectView(R.id.table_manners) ImageButton _mannersButton;
+    @InjectView(R.id.drinking_etiquette) ImageButton _drinkButton;
 
     @InjectView(R.id.btn_top) Button _topButton;
     @InjectView(R.id.btn_tradi) Button _basicButton;
@@ -37,18 +48,35 @@ public class BasicActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basic);
+        setContentView(R.layout.activity_tips);
         ButterKnife.inject(this);
 
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
+        final FirebaseUser user = auth.getCurrentUser();
+        if (user == null) {
+            // 인증된 사용자가 없을때 LoginActivity로 이동
+            startActivity(new Intent(TipsActivity.this, LoginActivity.class));
+            finish();
+        }
 
 
-
+        //Top5 화면으로 이동
+        _topButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TipsActivity.this, TopActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         // 메인 화면으로 이동
         _listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BasicActivity.this, "메인 화면으로 이동", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(BasicActivity.this, MainActivity.class);
+                Intent intent = new Intent(TipsActivity.this, MainActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0,0);
@@ -60,8 +88,7 @@ public class BasicActivity extends FragmentActivity {
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BasicActivity.this, "프로필 화면으로 이동", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(BasicActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(TipsActivity.this, ProfileActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0, 0);

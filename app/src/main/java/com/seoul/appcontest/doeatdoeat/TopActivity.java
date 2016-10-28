@@ -2,35 +2,43 @@ package com.seoul.appcontest.doeatdoeat;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends FragmentActivity {
-    private static final String TAG = "MainActivity";
-    private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener authListener;
+import java.util.Calendar;
+import java.util.Date;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
+/**
+ * Created by user on 2016-10-28.
+ */
+
+public class TopActivity extends FragmentActivity {
+    private static final String TAG = "TopActivity";
+
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    private ListViewAdapter adapter=new ListViewAdapter();
+    private FirebaseAuth auth;
+
+    @InjectView(R.id.datetime) TextView _datatimeText;
 
     @InjectView(R.id.btn_top) Button _topButton;
     @InjectView(R.id.btn_tradi) Button _tipsButton;
     @InjectView(R.id.btn_list) Button _listButton;
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -40,7 +48,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_top);
         ButterKnife.inject(this);
 
 
@@ -49,46 +57,51 @@ public class MainActivity extends FragmentActivity {
         final FirebaseUser user = auth.getCurrentUser();
         if (user == null) {
             // 인증된 사용자가 없을때 LoginActivity로 이동
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            startActivity(new Intent(TopActivity.this, LoginActivity.class));
             finish();
         }
+        final String[] week = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+        Calendar today = Calendar.getInstance();
+        int year = today.get(Calendar.YEAR);
+        int month = today.get(Calendar.MONTH);
+        int date = today.get(Calendar.DATE);
+        String day = week[today.get(Calendar.DAY_OF_WEEK)-1];
+        _datatimeText.setText(Integer.toString(year)+"."+Integer.toString(month)+"."+Integer.toString(date)+" "+day);
 
-
-
-        // 페이지 이동
-        _topButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TopActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-                finish();
-            }
-        });
+        //Tips 화면으로 이동
         _tipsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TipsActivity.class);
+                Intent intent = new Intent(TopActivity.this, TipsActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
             }
         });
+        // 메인 화면으로 이동
+        _listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TopActivity.this, MainActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                finish();
+            }
+        });
+        // 프로필 화면으로 이동
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(TopActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
             }
         });
-
-
     }
+
 
     @Override
     public void onBackPressed() {
@@ -101,19 +114,4 @@ public class MainActivity extends FragmentActivity {
             Toast.makeText(getApplicationContext(), "'뒤로'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
     }
-
-    // 메인 메뉴 아이콘 클릭 이벤트
-    @OnClick({R.id.menu_all,R.id.menu_rice,R.id.menu_noodle,
-            R.id.menu_soup,R.id.menu_meat,R.id.menu_fish,
-            R.id.menu_drink,R.id.menu_dessert,R.id.menu_street})
-    public void onMenuClick(View view){
-        FoodListActivity.menuNum=view.getId();
-        Intent intent = new Intent(MainActivity.this, FoodListActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
-        finish();
-    }
-
-
 }
-
