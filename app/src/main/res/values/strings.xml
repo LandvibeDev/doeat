@@ -62,7 +62,12 @@
     <string name="about_us_hs_email">shinhesoo@naver.com</string>
     <string name="about_us_hs_univ">덕성여자대학교 정보통계학과</string>
 
-
+    <string-array name="language">
+        <item>Korean</item>
+        <item>English</item>
+        <item>Chinese</item>
+        <item>Japanese</item>
+    </string-array>
 
     <string name="bibimbap">밥에 나물, 고기, 달걀을 올려 고추장(매운 양념)에 비벼먹는 한국의 전통음식</string>
     <string name="sungnung">밥솥 바닥에 열이 많이 가해져 눌러 붙은 밥(‘누룽지’라고 한다.)에 물을 붓고 끓여 만든 음식</string>

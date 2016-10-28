@@ -2,6 +2,7 @@ package com.seoul.appcontest.doeatdoeat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -42,8 +43,9 @@ public class ProfileActivity extends FragmentActivity {
 
     @InjectView(R.id.profile_layout_username) LinearLayout _nameLayout;
     @InjectView(R.id.profile_layout_email) LinearLayout _emailLayout;
-    @InjectView(R.id.profile_layout_password) LinearLayout _passwordLayout;
+    @InjectView(R.id.profile_layout_language) LinearLayout _languageLyaout;
     @InjectView(R.id.profile_layout_aboutus) LinearLayout _aboutusLayout;
+    @InjectView(R.id.profile_layout_password) LinearLayout _passwordLayout;
 
     @InjectView(R.id.profile_photo) ImageButton _photoImage;
     @InjectView(R.id.profile_top_username) TextView _topnameText;
@@ -125,6 +127,11 @@ public class ProfileActivity extends FragmentActivity {
             Log.d(TAG, "onAuthStateChanged:signed_out");
         }
 
+        // Languge
+        SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        String[] languages = getResources().getStringArray(R.array.language);
+        final String language = prefs.getString("language", languages[0]);
+
         // 이름 변경
         _nameLayout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -133,9 +140,11 @@ public class ProfileActivity extends FragmentActivity {
                     Flag
                     1 : name
                     2 : email
+                    3 : language
                  */
                 changeProfile(_nameText.getText().toString(),
                         _emailText.getText().toString(),
+                        language,
                         1);
             }
         });
@@ -148,14 +157,25 @@ public class ProfileActivity extends FragmentActivity {
                     Flag
                     1 : name
                     2 : email
+                    3 : language
                  */
                 changeProfile(_nameText.getText().toString(),
                         _emailText.getText().toString(),
+                        language,
                         2);
             }
         });
 
-
+        // Language 변경
+        _languageLyaout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeProfile(_nameText.getText().toString(),
+                        _emailText.getText().toString(),
+                        language,
+                        3);
+            }
+        });
         // AboutUs 페이지 이동
         _aboutusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,12 +187,10 @@ public class ProfileActivity extends FragmentActivity {
                 finish();
             }
         });
-
         //패스워드 변경
         _passwordLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileActivity.this, "패스워드 변경 페이지로 이동", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(ProfileActivity.this,PasswordChangeActivity.class);
                 i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
@@ -185,6 +203,10 @@ public class ProfileActivity extends FragmentActivity {
         _signoutButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.apply();
                 signOut(auth);
             }
         });
@@ -266,11 +288,12 @@ public class ProfileActivity extends FragmentActivity {
         auth.signOut();
     }
 
-    public void changeProfile(String name, String email, int flag){
+    public void changeProfile(String name, String email, String language, int flag){
         Toast.makeText(ProfileActivity.this, "프로필 변경 페이지로 이동", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(ProfileActivity.this,ProfileChangeActivity.class);
         i.putExtra("name", name);
         i.putExtra("email", email);
+        i.putExtra("language",language);
         i.putExtra("flag", flag);
         i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);

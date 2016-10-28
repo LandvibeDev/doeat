@@ -2,6 +2,7 @@ package com.seoul.appcontest.doeatdoeat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,7 +54,13 @@ public class MainActivity extends FragmentActivity {
             finish();
         }
 
-
+        SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        String[] languages = getResources().getStringArray(R.array.language);
+        String text = prefs.getString("language", languages[0]);
+        editor.putString("language", text);
+        editor.apply();
+        Log.d(TAG,"language : "+text);
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
