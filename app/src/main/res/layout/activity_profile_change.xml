@@ -135,6 +135,23 @@
                     />
             </android.support.design.widget.TextInputLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="변경할 언어를 선택해 주세요."
+                android:textColor="@color/gray"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:textAppearance="@style/TextAppearance.JUA"
+                />
+
+            <Spinner
+                android:id="@+id/language_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.JUA"
+                />
 
         </LinearLayout>
 

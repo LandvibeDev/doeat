@@ -2,6 +2,7 @@ package com.seoul.appcontest.doeatdoeat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,7 +14,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,11 +36,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by user on 2016-10-27.
  */
 
-public class ProfileChangeActivity extends FragmentActivity {
+public class ProfileChangeActivity extends FragmentActivity implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "ProfileChangeActivity";
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
-
+    private String newLanguage;
 
     @InjectView(R.id.btn_back) Button _backButton;
     @InjectView(R.id.btn_change) Button _changeButton;
@@ -71,6 +76,7 @@ public class ProfileChangeActivity extends FragmentActivity {
         Intent intent = getIntent();
         final String name = intent.getStringExtra("name");
         final String email = intent.getStringExtra("email");
+        final String language = intent.getStringExtra("language");
         int focusFlag = intent.getIntExtra("flag", 1);
 
         _nameInput.setText(name);
@@ -82,9 +88,30 @@ public class ProfileChangeActivity extends FragmentActivity {
             _emailInput.requestFocus();
             _emailInput.setSelection(_emailInput.getText().length());
         }
-        //키보드 보이기
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+        if(focusFlag!=3){
+            //키보드 보이기
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        }
+
+        // 언어 설정 스피너 adapter 설정
+        Spinner spinner = (Spinner) findViewById(R.id.language_spinner);
+        spinner.setOnItemSelectedListener(this);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.language, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        String[] languages = getResources().getStringArray(R.array.language);
+        for (int i =0 ;i<languages.length;i++){
+            if(language.equals(languages[i])){
+                spinner.setSelection(i);
+            }
+        }
+
 
         _backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +136,9 @@ public class ProfileChangeActivity extends FragmentActivity {
                 String inputEmail = _emailInput.getText().toString();
                 if(!inputEmail.equals(email)){
                     changeEmail(user, inputEmail);
+                }
+                if(newLanguage!=null && !newLanguage.equals(language)){
+                    changeLanguage(newLanguage);
                 }
 
                 //키보드 숨기기
@@ -164,6 +194,20 @@ public class ProfileChangeActivity extends FragmentActivity {
                     }
                 });
     }
+    public void changeLanguage(String language){
+        SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        String[] languages = getResources().getStringArray(R.array.language);
+        editor.remove("language");
+        for (String lang : languages){
+            if (lang.equals(language)){
+                editor.putString("language", language);
+                editor.apply();
+            }
+        }
+        Log.d(TAG,"language : "+language);
+
+    }
     public void hideKeyboard(){
         //키보드 숨기기
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -181,5 +225,21 @@ public class ProfileChangeActivity extends FragmentActivity {
             finish();
         }
         return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        // On selecting a spinner item
+        newLanguage = parent.getItemAtPosition(pos).toString();
+
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected newLanguage : " + newLanguage, Toast.LENGTH_LONG).show();
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
     }
 }
