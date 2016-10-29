@@ -70,8 +70,6 @@ public class MainActivity extends FragmentActivity {
             finish();
         }
 
-<<<<<<< HEAD
-=======
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String[] languages = getResources().getStringArray(R.array.language);
@@ -79,7 +77,6 @@ public class MainActivity extends FragmentActivity {
         editor.putString("language", text);
         editor.apply();
         Log.d(TAG,"language : "+text);
->>>>>>> 49645d69089d0c20e0ceb85660dedc9193e5472c
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
