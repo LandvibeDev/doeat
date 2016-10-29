@@ -173,7 +173,7 @@
                     android:paddingBottom="5dp"
                     android:paddingStart="20dp"
                     android:layout_below="@id/youtube_player"
-                    android:textSize="20dp"
+                    android:textSize="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -237,10 +237,8 @@
                     android:layout_below="@id/explain_line"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
+                    android:textSize="20dp"
+                    android:padding="10dp"
                     />
             </RelativeLayout>
 
