@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import org.w3c.dom.Text;
 
 import butterknife.ButterKnife;
@@ -25,16 +28,22 @@ import butterknife.InjectView;
  * Created by a on 2016-09-21.
  */
 public class FoodListActivity extends Activity {
-
-    @InjectView(R.id.btn_top) Button _homeButton;
-    @InjectView(R.id.btn_tradi) Button _matchtButton;
-    @InjectView(R.id.btn_list) Button _listButton;
-    @InjectView(R.id.btn_favorite) Button _favoriteButton;
-    @InjectView(R.id.btn_profile) Button _profileButton;
-
     @InjectView(R.id.btn_back) Button _btnBack;
     @InjectView(R.id.list_food) ListView _listView;
     @InjectView(R.id.list_title) TextView _title;
+
+    @InjectView(R.id.btn_top)
+    Button _topButton;
+    @InjectView(R.id.btn_tradi)
+    Button _tipsButton;
+    @InjectView(R.id.btn_list)
+    Button _listButton;
+    @InjectView(R.id.btn_favorite)
+    Button _favoriteButton;
+    @InjectView(R.id.btn_profile)
+    Button _profileButton;
+
+
 
     public static String menuStr;
     public static int menuNum;
@@ -44,6 +53,39 @@ public class FoodListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foodlist);
         ButterKnife.inject(this);
+
+        // 페이지 이동
+        _topButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity.this, TopActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _tipsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity.this, TipsActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity.this, ProfileActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+
         ListViewAdapter adapter=new ListViewAdapter();
         _listView.setAdapter(adapter);
         _title.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));

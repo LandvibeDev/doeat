@@ -16,6 +16,15 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends FragmentActivity {
     private static final String TAG = "MainActivity";
@@ -23,13 +32,20 @@ public class MainActivity extends FragmentActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    private ListViewAdapter adapter=new ListViewAdapter();
+    private ListViewAdapter adapter = new ListViewAdapter();
+    String language = "korean";
+    private List<FoodData> foodList = new ArrayList<>();
 
-    @InjectView(R.id.btn_top) Button _topButton;
-    @InjectView(R.id.btn_tradi) Button _tipsButton;
-    @InjectView(R.id.btn_list) Button _listButton;
-    @InjectView(R.id.btn_favorite) Button _favoriteButton;
-    @InjectView(R.id.btn_profile) Button _profileButton;
+    @InjectView(R.id.btn_top)
+    Button _topButton;
+    @InjectView(R.id.btn_tradi)
+    Button _tipsButton;
+    @InjectView(R.id.btn_list)
+    Button _listButton;
+    @InjectView(R.id.btn_favorite)
+    Button _favoriteButton;
+    @InjectView(R.id.btn_profile)
+    Button _profileButton;
 
 
     @Override
@@ -54,7 +70,6 @@ public class MainActivity extends FragmentActivity {
         }
 
 
-
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +81,7 @@ public class MainActivity extends FragmentActivity {
                 finish();
             }
         });
-        _tipsButton.setOnClickListener(new View.OnClickListener(){
+        _tipsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TipsActivity.class);
@@ -87,6 +102,8 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        //FirebaseDatabase database=FirebaseDatabase.getInstance();
+        //loadData(database,foodList,language);
 
     }
 
@@ -103,17 +120,41 @@ public class MainActivity extends FragmentActivity {
     }
 
     // 메인 메뉴 아이콘 클릭 이벤트
-    @OnClick({R.id.menu_all,R.id.menu_rice,R.id.menu_noodle,
-            R.id.menu_soup,R.id.menu_meat,R.id.menu_fish,
-            R.id.menu_drink,R.id.menu_dessert,R.id.menu_street})
-    public void onMenuClick(View view){
-        FoodListActivity.menuNum=view.getId();
+    @OnClick({R.id.menu_all, R.id.menu_rice, R.id.menu_noodle,
+            R.id.menu_soup, R.id.menu_meat, R.id.menu_fish,
+            R.id.menu_drink, R.id.menu_dessert, R.id.menu_street})
+    public void onMenuClick(View view) {
+        FoodListActivity.menuNum = view.getId();
         Intent intent = new Intent(MainActivity.this, FoodListActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
         finish();
     }
+    /*
+    public void loadData(FirebaseDatabase database, final List<FoodData> foods,String language){
+        DatabaseReference myRef=database.getReference(language);
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                try{
+                    for(DataSnapshot postSnapshot:dataSnapshot.getChildren()){
+                        FoodData f=postSnapshot.getValue(FoodData.class);
+                        foods.add(f);
+                    }
+                }catch(DatabaseException e){
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG,"Failed to read value", databaseError.toException());
+            }
+        });
+
+    }
+*/
 
 }
 

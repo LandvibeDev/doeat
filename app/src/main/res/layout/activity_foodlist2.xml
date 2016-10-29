@@ -154,6 +154,7 @@
         <ScrollView
             android:id="@+id/foodlist2_scroll"
             android:layout_below="@id/layout_topbar_2"
+            android:layout_above="@id/layout_menu_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
@@ -164,13 +165,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:padding="0dp" />
+                    android:padding="0dp"
+                    android:layout_margin="10dp"/>
                 <TextView
                     android:id="@+id/explain_title"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingStart="20dp"
                     android:layout_below="@id/youtube_player"
+                    android:textSize="20dp"
                     android:layout_alignParentStart="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -179,7 +182,7 @@
                     android:id="@+id/icon_hotlevel1"
                     android:layout_alignTop="@id/explain_title"
                     android:layout_alignParentEnd="true"
-                    android:paddingEnd="10dp"
+                    android:padding="5dp"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/hotlevel"
@@ -187,37 +190,37 @@
                 <ImageView
                     android:id="@+id/icon_hotlevel2"
                     android:layout_alignTop="@id/explain_title"
-                    android:layout_alignBaseline="@id/icon_hotlevel1"
+                    android:padding="5dp"
                     android:layout_toLeftOf="@id/icon_hotlevel1"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/hotlevel"
                     />
                 <ImageView
                     android:id="@+id/icon_hotlevel3"
                     android:layout_alignTop="@id/explain_title"
-                    android:layout_alignBaseline="@id/icon_hotlevel1"
+                    android:padding="5dp"
                     android:layout_toLeftOf="@id/icon_hotlevel2"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/hotlevel"
                     />
                 <ImageView
                     android:id="@+id/icon_hotlevel4"
                     android:layout_alignTop="@id/explain_title"
-                    android:layout_alignBaseline="@id/icon_hotlevel1"
+                    android:padding="5dp"
                     android:layout_toLeftOf="@id/icon_hotlevel3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/hotlevel"
                     />
                 <ImageView
                     android:id="@+id/icon_hotlevel5"
                     android:layout_alignTop="@id/explain_title"
-                    android:layout_alignBaseline="@id/icon_hotlevel1"
+                    android:padding="5dp"
                     android:layout_toLeftOf="@id/icon_hotlevel4"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/hotlevel"
                     />
                 <View
@@ -234,6 +237,8 @@
                     android:layout_below="@id/explain_line"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:paddingTop="5dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     />

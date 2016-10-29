@@ -56,16 +56,6 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="40dp"
-                android:background="@mipmap/menu_icon" />
-
-            <Button
                 android:id="@+id/btn_back"
                 android:layout_width="30dp"
                 android:layout_height="27dp"
