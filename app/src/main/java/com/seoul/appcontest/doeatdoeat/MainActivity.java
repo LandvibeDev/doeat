@@ -77,7 +77,6 @@ public class MainActivity extends FragmentActivity {
         editor.apply();
         Log.d(TAG,"language : "+text);
 
-
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
