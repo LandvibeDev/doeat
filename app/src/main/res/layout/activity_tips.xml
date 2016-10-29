@@ -65,8 +65,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/tips_seoulspick"
-                    android:background="@color/light_gray"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/tips_seoulspick"
                     />
 
                 <ImageButton
@@ -74,8 +74,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/tips_dining"
-                    android:background="@color/light_gray"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/tips_koreandining"
                     />
             </LinearLayout>
 
@@ -86,22 +86,22 @@
                 android:layout_weight="1"
                 >
 
-
                 <ImageButton
                     android:id="@+id/using_chopsticks"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/tips_chopsticks"
-                    android:background="@color/light_gray"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/tips_chopsticks"
                     />
+
                 <ImageButton
                     android:id="@+id/ordering_foods"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/tips_order"
-                    android:background="@color/light_gray"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/tips_orderingfood"
                     />
 
             </LinearLayout>
@@ -117,16 +117,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/tips_manners"
-                    android:background="@color/light_gray"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/tips_tablemanners"
                     />
                 <ImageButton
                     android:id="@+id/drinking_etiquette"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/tips_drink"
-                    android:background="@color/light_gray"
+                    android:layout_margin="10dp"
+                    android:background="@mipmap/tips_drinketiqette"
                     />
             </LinearLayout>
 
