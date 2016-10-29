@@ -7,19 +7,19 @@ package com.seoul.appcontest.doeatdoeat;
 public class FoodData {
     private int id;
     private String name;
-    private String shortContents;
-    private String longContents;
+    private String shortcontents;
+    private String longcontents;
     private int like;
     private int count;
 
     public FoodData() {
     }
 
-    public FoodData(int id, String name, String shortContents, String longContents, int like, int count) {
+    public FoodData(int id, String name, String shortcontents, String longcontents, int like, int count) {
         this.id = id;
         this.name = name;
-        this.shortContents = shortContents;
-        this.longContents = longContents;
+        this.shortcontents = shortcontents;
+        this.longcontents = longcontents;
         this.like = like;
         this.count = count;
     }
@@ -41,19 +41,19 @@ public class FoodData {
     }
 
     public String getShortContents() {
-        return shortContents;
+        return shortcontents;
     }
 
     public void setShortContents(String shortContents) {
-        this.shortContents = shortContents;
+        this.shortcontents = shortContents;
     }
 
     public String getLongContents() {
-        return longContents;
+        return longcontents;
     }
 
     public void setLongContents(String longContents) {
-        this.longContents = longContents;
+        this.longcontents = longContents;
     }
 
     public int getLike() {

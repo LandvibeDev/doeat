@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +37,12 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
     @InjectView(R.id.list_title_2) TextView _title2;
     @InjectView(R.id.explain_title) TextView _explainTitle;
     @InjectView(R.id.explain_explain) TextView _explainExplain;
+    @InjectView(R.id.icon_hotlevel1) ImageView _hotlevel1;
+    @InjectView(R.id.icon_hotlevel2) ImageView _hotlevel2;
+    @InjectView(R.id.icon_hotlevel3) ImageView _hotlevel3;
+    @InjectView(R.id.icon_hotlevel4) ImageView _hotlevel4;
+    @InjectView(R.id.icon_hotlevel5) ImageView _hotlevel5;
+    List<ImageView> hotImage=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +50,21 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         setContentView(R.layout.activity_foodlist2);
         ButterKnife.inject(this);
 
+       addHotLevel();
+
         _title2.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
         _explainTitle.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
         _explainExplain.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
-        _explainExplain.setText(getString(R.string.exp_bibimbap));
+
+        for(int i=0;i<MainActivity.foodList.size();i++){
+            if(MainActivity.foodList.get(i).getName().equals(FoodListActivity.menuStr2)){
+                _explainTitle.setText(MainActivity.foodList.get(i).getName());
+                _explainExplain.setText(MainActivity.foodList.get(i).getLongContents());
+                for(int j=0;j<5-MainActivity.foodList.get(i).getId();j++){
+                    hotImage.get(j).setImageResource(android.R.color.transparent);
+                }
+            }
+        }
         if(FoodListActivity.menuNum==R.id.menu_all){
             _title2.setText("All");
         }else if(FoodListActivity.menuNum==R.id.menu_rice){
@@ -65,7 +84,6 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         }else if(FoodListActivity.menuNum==R.id.menu_street){
             _title2.setText("Street");
         }
-        _explainTitle.setText(FoodListActivity.menuStr2);
         /** Initializing YouTube player view **/
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
         youTubePlayerView.initialize(API_KEY, this);
@@ -148,5 +166,12 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
                 finish();
         }
         return true;
+    }
+    public void addHotLevel(){
+        hotImage.add(_hotlevel5);
+        hotImage.add(_hotlevel4);
+        hotImage.add(_hotlevel3);
+        hotImage.add(_hotlevel2);
+        hotImage.add(_hotlevel1);
     }
 }

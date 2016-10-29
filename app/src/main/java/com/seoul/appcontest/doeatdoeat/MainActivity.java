@@ -35,7 +35,7 @@ public class MainActivity extends FragmentActivity {
     private long backPressedTime = 0;
     private ListViewAdapter adapter = new ListViewAdapter();
     String language = "korean";
-    private List<FoodData> foodList = new ArrayList<>();
+    public static List<FoodData> foodList=new ArrayList<>();
 
     @InjectView(R.id.btn_top)
     Button _topButton;
@@ -109,9 +109,8 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        //FirebaseDatabase database=FirebaseDatabase.getInstance();
-        //loadData(database,foodList,language);
-
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        loadData(database,foodList,language);
     }
 
     @Override
@@ -137,7 +136,7 @@ public class MainActivity extends FragmentActivity {
         overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
         finish();
     }
-    /*
+
     public void loadData(FirebaseDatabase database, final List<FoodData> foods,String language){
         DatabaseReference myRef=database.getReference(language);
 
@@ -161,7 +160,5 @@ public class MainActivity extends FragmentActivity {
         });
 
     }
-*/
-
 }
 

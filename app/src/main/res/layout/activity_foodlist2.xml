@@ -166,14 +166,14 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:padding="0dp"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="20dp"/>
                 <TextView
                     android:id="@+id/explain_title"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingStart="20dp"
                     android:layout_below="@id/youtube_player"
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:layout_alignParentStart="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -181,8 +181,9 @@
                 <ImageView
                     android:id="@+id/icon_hotlevel1"
                     android:layout_alignTop="@id/explain_title"
-                    android:layout_alignParentEnd="true"
-                    android:padding="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_alignEnd="@id/youtube_player"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/hotlevel"
@@ -237,8 +238,9 @@
                     android:layout_below="@id/explain_line"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:padding="20dp"
                     />
             </RelativeLayout>
 
