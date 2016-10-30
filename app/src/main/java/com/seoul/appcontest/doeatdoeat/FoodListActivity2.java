@@ -22,9 +22,17 @@ import com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by a on 2016-09-29.
@@ -262,5 +270,12 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         hotImage.add(_hotlevel3);
         hotImage.add(_hotlevel2);
         hotImage.add(_hotlevel1);
+    }
+    public void addLikeCount(FirebaseDatabase firebaseDatabase, String index){
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+//        Map<String, Object> childUpdates = new HashMap<>();
+//        childUpdates.put(uid + "/language", );
+//        databaseReference.updateChildren(childUpdates);
+
     }
 }
