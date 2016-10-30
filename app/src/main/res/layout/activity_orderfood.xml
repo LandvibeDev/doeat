@@ -48,21 +48,26 @@
         </RelativeLayout>
 
         <!-- 중간 카테고리 -->
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_topbar"
+            android:layout_above="@+id/layout_menu"
+            android:layout_marginBottom="20dp"
+            >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/layout_topbar"
-            android:layout_above="@+id/layout_menu"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@color/white"
             >
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="25dp"
                 android:text="Ordering Foods"
                 android:textSize="25dp"
                 android:textColor="@color/light_red"
@@ -104,6 +109,7 @@
                         android:id="@+id/contents3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
                         android:text="Ordering Foods"
                         android:textColor="@color/black"
                         android:textAppearance="@style/TextAppearance.JUA"/>
@@ -121,42 +127,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="2"
                     >
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@mipmap/chopstick1"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@mipmap/ordering_food_bell"
                         android:layout_weight="1"
-                        android:layout_margin="10dp"
+                        android:layout_marginBottom="20dp"
                         />
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@mipmap/chopstick2"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@mipmap/ordering_food_chopsticks"
                         android:layout_weight="1"
-                        android:layout_margin="10dp"
+                        android:layout_marginBottom="20dp"
                         />
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@mipmap/chopstick3"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@mipmap/ordering_food_cafe"
                         android:layout_weight="1"
-                        android:layout_margin="10dp"
                         />
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@mipmap/chopstick4"
-                        android:layout_weight="1"
-                        android:layout_margin="10dp"
-                        />
+
                 </LinearLayout>
 
             </LinearLayout>
 
 
         </LinearLayout>
+        </ScrollView>
         <!-- 하단 바-->
         <LinearLayout
             android:id="@+id/layout_menu"

@@ -56,6 +56,9 @@ public class LikeActivity extends FragmentActivity {
             finish();
         }
 
+        ListViewAdapter adapter=new ListViewAdapter();
+        _listView.setAdapter(adapter);
+
         //Top5 화면으로 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,8 +103,6 @@ public class LikeActivity extends FragmentActivity {
             }
         });
 
-        ListViewAdapter adapter=new ListViewAdapter();
-        _listView.setAdapter(adapter);
 
     }
 
