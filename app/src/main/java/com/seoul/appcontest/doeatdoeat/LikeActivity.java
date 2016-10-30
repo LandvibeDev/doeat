@@ -31,13 +31,11 @@ public class LikeActivity extends FragmentActivity {
     private FirebaseAuth auth;
 
     @InjectView(R.id.list_like) ListView _listView;
-
     @InjectView(R.id.btn_top) Button _topButton;
     @InjectView(R.id.btn_tradi) Button _tipsButton;
     @InjectView(R.id.btn_list) Button _listButton;
     //@InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
-
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -57,8 +55,6 @@ public class LikeActivity extends FragmentActivity {
             startActivity(new Intent(LikeActivity.this, LoginActivity.class));
             finish();
         }
-
-
 
         //Top5 화면으로 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +99,10 @@ public class LikeActivity extends FragmentActivity {
                 finish();
             }
         });
+
+        ListViewAdapter adapter=new ListViewAdapter();
+        _listView.setAdapter(adapter);
+
     }
 
     @Override

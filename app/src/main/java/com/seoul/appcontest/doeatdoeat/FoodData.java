@@ -14,6 +14,14 @@ public class FoodData {
 
     public FoodData() {
     }
+    public FoodData(FoodData f){
+        this.id=f.getId();
+        this.name=f.getName();
+        this.shortcontents=f.getShortContents();
+        this.longcontents=f.getLongContents();
+        this.like=f.getLike();
+        this.count=f.getCount();
+    }
 
     public FoodData(int id, String name, String shortcontents, String longcontents, int like, int count) {
         this.id = id;

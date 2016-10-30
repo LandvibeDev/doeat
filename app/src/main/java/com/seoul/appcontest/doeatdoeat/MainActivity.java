@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
@@ -35,10 +36,7 @@ public class MainActivity extends FragmentActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    private ListViewAdapter adapter = new ListViewAdapter();
     public static List<FoodData> foodList;
-    String language;
-
 
     @InjectView(R.id.btn_top)
     Button _topButton;
@@ -75,21 +73,17 @@ public class MainActivity extends FragmentActivity {
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String[] languages = getResources().getStringArray(R.array.language);
-        language = prefs.getString("language", languages[0]);
+        String language = prefs.getString("language", languages[0]);
         editor.putString("language", language);
         editor.apply();
         Log.d(TAG,"language : "+language);
 
-
-        CheckTypesTask task = new CheckTypesTask();
-        task.execute();
 
         if(foodList==null){
             foodList = new ArrayList<>();
             FirebaseDatabase database=FirebaseDatabase.getInstance();
             loadData(database,foodList,language);
         }
-
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
@@ -183,6 +177,7 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
+    /*
     private class CheckTypesTask extends AsyncTask<Void, Void, Void> {
 
         ProgressDialog asyncDialog = new ProgressDialog(
@@ -214,6 +209,6 @@ public class MainActivity extends FragmentActivity {
             super.onPostExecute(result);
         }
     }
-
+*/
 }
 

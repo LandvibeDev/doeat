@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +44,19 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
     @InjectView(R.id.icon_hotlevel3) ImageView _hotlevel3;
     @InjectView(R.id.icon_hotlevel4) ImageView _hotlevel4;
     @InjectView(R.id.icon_hotlevel5) ImageView _hotlevel5;
+    @InjectView(R.id.button_like) Button _buttonLike;
+    @InjectView(R.id.btn_back_2) Button btnBack;
+    @InjectView(R.id.btn_top_2)
+    Button _topButton;
+    @InjectView(R.id.btn_tradi_2)
+    Button _tipsButton;
+    @InjectView(R.id.btn_list_2)
+    Button _listButton;
+    @InjectView(R.id.btn_favorite_2)
+    Button _favoriteButton;
+    @InjectView(R.id.btn_profile_2)
+    Button _profileButton;
+    @InjectView(R.id.foodpicture) ImageView foodPicture;
     List<ImageView> hotImage=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +99,83 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         }else if(FoodListActivity.menuNum==R.id.menu_street){
             _title2.setText("Street");
         }
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(FoodListActivity2.this,FoodListActivity.class);
+                i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
+                finish();
+            }
+        });
+        // 페이지 이동
+        _topButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity2.this, TopActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _tipsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity2.this, TipsActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity2.this, ProfileActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity2.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FoodListActivity2.this, MainActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _buttonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                _buttonLike.setBackgroundResource(R.mipmap.spoon_red);
+            }
+        });
         /** Initializing YouTube player view **/
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
-        youTubePlayerView.initialize(API_KEY, this);
+        if(VIDEO_ID.equals("")){
+            youTubePlayerView.setVisibility(View.GONE);
+            foodPicture.setImageDrawable(((ImageView)FoodListActivity.foodView).getDrawable());
+        }else{
+            foodPicture.setVisibility(View.GONE);
+            youTubePlayerView.initialize(API_KEY, this);
+        }
     }
 
     @Override
