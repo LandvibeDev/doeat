@@ -1,8 +1,10 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +37,7 @@ public class MainActivity extends FragmentActivity {
     private long backPressedTime = 0;
     private ListViewAdapter adapter = new ListViewAdapter();
     public static List<FoodData> foodList;
+    String language;
 
 
     @InjectView(R.id.btn_top)
@@ -72,18 +75,13 @@ public class MainActivity extends FragmentActivity {
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String[] languages = getResources().getStringArray(R.array.language);
-        String language = prefs.getString("language", languages[0]);
+        language = prefs.getString("language", languages[0]);
         editor.putString("language", language);
         editor.apply();
         Log.d(TAG,"language : "+language);
 
-        if(foodList==null){
-            foodList = new ArrayList<>();
-            FirebaseDatabase database=FirebaseDatabase.getInstance();
-            language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
-            loadData(database,foodList,language);
-        }
-
+        CheckTypesTask task = new CheckTypesTask();
+        task.execute();
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +173,44 @@ public class MainActivity extends FragmentActivity {
                 Log.w(TAG,"Failed to read value", databaseError.toException());
             }
         });
-
     }
+
+    private class CheckTypesTask extends AsyncTask<Void, Void, Void> {
+
+        ProgressDialog asyncDialog = new ProgressDialog(
+                MainActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("데이터 불러오는 중...");
+
+            // show dialog
+            asyncDialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            try {
+                if(foodList==null){
+                    foodList = new ArrayList<>();
+                    FirebaseDatabase database=FirebaseDatabase.getInstance();
+                    language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
+                    loadData(database,foodList,language);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            asyncDialog.dismiss();
+            super.onPostExecute(result);
+        }
+    }
+
 }
 
