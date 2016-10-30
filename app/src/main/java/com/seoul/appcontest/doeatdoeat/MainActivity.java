@@ -1,14 +1,15 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
@@ -39,10 +40,8 @@ public class MainActivity extends FragmentActivity {
     private FirebaseDatabase firebaseDatabase;
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    private ListViewAdapter adapter = new ListViewAdapter();
     public static List<FoodData> foodList;
     private boolean hasUser=false;
-
 
     @InjectView(R.id.btn_top)
     Button _topButton;
@@ -90,13 +89,11 @@ public class MainActivity extends FragmentActivity {
 
 
 
-
         if(foodList==null){
             foodList = new ArrayList<>();
             FirebaseDatabase database=FirebaseDatabase.getInstance();
             loadData(database,foodList,language);
         }
-
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
@@ -188,8 +185,9 @@ public class MainActivity extends FragmentActivity {
                 Log.w(TAG,"Failed to read value", databaseError.toException());
             }
         });
-
     }
+
+
     private void searchUser(FirebaseDatabase database, final String uid, final String email){
         final DatabaseReference myRef=database.getReference("user");
         Query searchUserQuery = myRef.child(uid);

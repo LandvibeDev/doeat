@@ -1,13 +1,17 @@
 package com.seoul.appcontest.doeatdoeat;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -26,13 +30,12 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import static com.seoul.appcontest.doeatdoeat.MainActivity.foodList;
-
 
 /**
  * Created by a on 2016-09-21.
  */
 public class FoodListActivity extends Activity {
+    private static final String TAG = "MainActivity";
     @InjectView(R.id.btn_back) Button _btnBack;
     @InjectView(R.id.list_food) ListView _listView;
     @InjectView(R.id.list_title) TextView _title;
@@ -46,8 +49,7 @@ public class FoodListActivity extends Activity {
     public static String menuStr;
     public static int menuNum;
     public static String menuStr2;
-
-
+    public static View foodView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,12 +87,33 @@ public class FoodListActivity extends Activity {
                 finish();
             }
         });
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodListActivity.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FoodListActivity.this, MainActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
 
         ListViewAdapter adapter=new ListViewAdapter();
         _listView.setAdapter(adapter);
         _title.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
 
         // 메인에서 선택한 메뉴에 따라 보이는 List 설정
+
         try{
             if(menuNum==R.id.menu_rice){
                 _title.setText("Rice");
@@ -128,70 +151,71 @@ public class FoodListActivity extends Activity {
                 addDessert(adapter);
                 addStreet(adapter);
             }
-        }catch(Exception e){e.printStackTrace();}
+        }catch(Exception e){Log.e(TAG,e.toString());}
 
 
         _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                foodView=((ViewGroup)view).getChildAt(0);
                 if(menuNum==R.id.menu_rice){
                     menuStr2=MainActivity.foodList.get(i).getName();
-                    if(i==0){}
-                    else if(i==1){}
-                    else if(i==2){}
+                    if(i==0){menuStr="xBRlpIwJP64";}
+                    else if(i==1){menuStr="pChrA7Zt_8Y";}
+                    else if(i==2){menuStr="";}
                 }else if(menuNum==R.id.menu_noodle){
                     menuStr2=MainActivity.foodList.get(i+3).getName();
-                    if(i==0){}
+                    if(i==0){menuStr="rTr0MvRVaWQ";}
                     else if(i==1){menuStr="vTkMEu4s674";}
                     else if(i==2){menuStr="vTkMEu4s674";}
-                    else if(i==3){}
-                    else if(i==4){}
+                    else if(i==3){menuStr="uqRIH7QmAu4";}
+                    else if(i==4){menuStr="AIhaFjIMeMg";}
                 }else if(menuNum==R.id.menu_meat){
                     menuStr2=MainActivity.foodList.get(i+12).getName();
                     if(i==0){menuStr="tkaprRUwSwU";}
                     else if(i==1){menuStr="tsjooxxZxFc";}
-                    else if(i==2){}
-                    else if(i==3){}
+                    else if(i==2){menuStr="";}
+                    else if(i==3){menuStr="";}
                     else if(i==4){menuStr="lt8vAV3fiy4";}
-                    else if(i==5){}
-                    else if(i==6){}
-                    else if(i==7){}
+                    else if(i==5){menuStr="Vy2sqhWexyI";}
+                    else if(i==6){menuStr="vTkMEu4s674";}
+                    else if(i==7){menuStr="e3J24CgVKYM";}
                 }else if(menuNum==R.id.menu_fish){
                     menuStr2=MainActivity.foodList.get(i+20).getName();
                     if(i==0){menuStr="JXcGYjZcamg";}
-                    else if(i==1){}
+                    else if(i==1){menuStr="GhwPqdGDqIU";}
                     else if(i==2){menuStr="DstzvJuPBN0";}
                 }else if(menuNum==R.id.menu_drink){
                     menuStr2=MainActivity.foodList.get(i+23).getName();
-                    if(i==0){}
-                    else if(i==1){}
-                    else if(i==2){}
-                    else if(i==3){}
-                    else if(i==4){}
+                    if(i==0){menuStr="";}
+                    else if(i==1){menuStr="";}
+                    else if(i==2){menuStr="";}
+                    else if(i==3){menuStr="";}
+                    else if(i==4){menuStr="";}
                 }else if(menuNum==R.id.menu_dessert){
                     menuStr2=MainActivity.foodList.get(i+28).getName();
                     if(i==0){menuStr="2G-3r0OO4UE";}
-                    else if(i==1){}
-                    else if(i==2){}
-                    else if(i==3){}
+                    else if(i==1){menuStr="";}
+                    else if(i==2){menuStr="";}
+                    else if(i==3){menuStr="";}
                 }else if(menuNum==R.id.menu_street){
                     menuStr2=MainActivity.foodList.get(i+32).getName();
                     if(i==0){menuStr="xWWtNryEGgs";}
-                    else if(i==1){}
-                    else if(i==2){}
-                    else if(i==3){}
-                    else if(i==4){}
-                    else if(i==5){menuStr="AIhaFjIMeMg";}
-                    else if(i==6){}
-                    else if(i==7){}
-                    else if(i==8){}
-                    else if(i==9){}
-                    else if(i==10){}
+                    else if(i==1){menuStr="_9jjjAe9xKk";}
+                    else if(i==2){menuStr="";}
+                    else if(i==3){menuStr="";}
+                    else if(i==4){menuStr="Tr70mg519r8";}
+                    else if(i==5){menuStr="A8ysMcsOKyg";}
+                    else if(i==6){menuStr="2ke4DhjKOPU";}
+                    else if(i==7){menuStr="jKbgPTWZNSw";}
+                    else if(i==8){menuStr="";}
+                    else if(i==9){menuStr="1i1KkDqyD74";}
+                    else if(i==10){menuStr="3RWsR73M3F4";}
                 }else if(menuNum==R.id.menu_soup){
                     menuStr2=MainActivity.foodList.get(i+8).getName();
                     if(i==0){menuStr="krewH_3efoA";}
                     else if(i==1) {menuStr = "3IA172p8rI8";}
-                    else if(i==2){}
+                    else if(i==2){menuStr="_9jjjAe9xKk";}
                     else if(i==3){menuStr="p44BDmajNmI";}
                 }else{
                     menuStr2=MainActivity.foodList.get(i).getName();
