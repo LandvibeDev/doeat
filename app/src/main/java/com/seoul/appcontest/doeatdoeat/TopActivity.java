@@ -90,6 +90,17 @@ public class TopActivity extends FragmentActivity {
                 finish();
             }
         });
+        // 좋아요 페이지 이동
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TopActivity.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         // 프로필 화면으로 이동
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override

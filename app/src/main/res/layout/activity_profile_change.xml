@@ -46,8 +46,8 @@
 
             <Button
                 android:id="@+id/btn_back"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:background="@mipmap/white_back_icon"
                 android:layout_marginLeft="10dp"
                 android:layout_alignBottom="@+id/linearLayout"
@@ -58,13 +58,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/light_red"
-                android:text="확인"
+                android:text="OK"
                 android:textColor="@color/white"
                 android:textAppearance="@style/TextAppearance.JUA"
                 android:layout_marginRight="10dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="11dp" />
+                />
 
         </RelativeLayout>
 

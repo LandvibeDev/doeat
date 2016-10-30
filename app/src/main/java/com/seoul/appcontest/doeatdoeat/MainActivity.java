@@ -105,6 +105,16 @@ public class MainActivity extends FragmentActivity {
                 finish();
             }
         });
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

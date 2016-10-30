@@ -251,6 +251,17 @@ public class ProfileActivity extends FragmentActivity {
                 finish();
             }
         });
+        // 좋아요 페이지 이동
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
 
         // 로그아웃 이벤트 리스터
         authListener = new FirebaseAuth.AuthStateListener() {
