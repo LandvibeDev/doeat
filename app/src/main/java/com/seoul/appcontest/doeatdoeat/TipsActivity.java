@@ -61,6 +61,18 @@ public class TipsActivity extends FragmentActivity {
         }
 
 
+        _chopstickButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TipsActivity.this, ChopsticksActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+
+
         //Top5 화면으로 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
