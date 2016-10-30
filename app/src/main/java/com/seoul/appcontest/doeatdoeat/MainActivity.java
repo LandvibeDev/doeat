@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,23 +19,29 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends FragmentActivity {
     private static final String TAG = "MainActivity";
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseDatabase firebaseDatabase;
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
     public static List<FoodData> foodList;
+    private boolean hasUser=false;
 
     @InjectView(R.id.btn_top)
     Button _topButton;
@@ -68,6 +73,10 @@ public class MainActivity extends FragmentActivity {
             // 인증된 사용자가 없을때 LoginActivity로 이동
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
+        }else{
+            Log.d(TAG , "User uid : " + user.getUid());
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            searchUser(firebaseDatabase,user.getUid(),user.getEmail());
         }
 
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
@@ -77,6 +86,7 @@ public class MainActivity extends FragmentActivity {
         editor.putString("language", language);
         editor.apply();
         Log.d(TAG,"language : "+language);
+
 
 
         if(foodList==null){
@@ -177,38 +187,37 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
-    /*
-    private class CheckTypesTask extends AsyncTask<Void, Void, Void> {
 
-        ProgressDialog asyncDialog = new ProgressDialog(
-                MainActivity.this);
-
-        @Override
-        protected void onPreExecute() {
-            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            asyncDialog.setMessage("데이터 불러오는 중...");
-
-            // show dialog
-            asyncDialog.show();
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            try {
-
-            } catch (Exception e) {
-                e.printStackTrace();
+    private void searchUser(FirebaseDatabase database, final String uid, final String email){
+        final DatabaseReference myRef=database.getReference("user");
+        Query searchUserQuery = myRef.child(uid);
+        searchUserQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User u = dataSnapshot.getValue(User.class);
+                if(u==null){
+                    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("user");
+                    writeNewUser(databaseReference, uid, email, "Korean", "");
+                    Log.d(TAG, "유저가 존재 하지 않습니다. DB에 유저를 추가합니다");
+                }else{
+                    Log.d(TAG, "유저가 이미 존재합니다! User Email : "+u.getEmail());
+                }
             }
-            return null;
-        }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            asyncDialog.dismiss();
-            super.onPostExecute(result);
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
-*/
+    private void writeNewUser(DatabaseReference databaseReference, String uid, String email, String language, String likeFoods) {
+        // /user/user-id/values 변경
+        //String key = databaseReference.push().getKey();
+        User user = new User(email,language,likeFoods);
+        Map<String, Object> userValues = user.toMap();
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put(uid, userValues);
+        databaseReference.updateChildren(childUpdates);
+    }
 }
 

@@ -40,16 +40,11 @@ public class FoodListActivity extends Activity {
     @InjectView(R.id.list_food) ListView _listView;
     @InjectView(R.id.list_title) TextView _title;
 
-    @InjectView(R.id.btn_top)
-    Button _topButton;
-    @InjectView(R.id.btn_tradi)
-    Button _tipsButton;
-    @InjectView(R.id.btn_list)
-    Button _listButton;
-    @InjectView(R.id.btn_favorite)
-    Button _favoriteButton;
-    @InjectView(R.id.btn_profile)
-    Button _profileButton;
+    @InjectView(R.id.btn_top) Button _topButton;
+    @InjectView(R.id.btn_tradi) Button _tipsButton;
+    @InjectView(R.id.btn_list) Button _listButton;
+    @InjectView(R.id.btn_favorite) Button _favoriteButton;
+    @InjectView(R.id.btn_profile) Button _profileButton;
 
     public static String menuStr;
     public static int menuNum;
