@@ -34,8 +34,8 @@ public class MainActivity extends FragmentActivity {
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
     private ListViewAdapter adapter = new ListViewAdapter();
-    String language = "japanese";
-    public static List<FoodData> foodList=new ArrayList<>();
+    public static List<FoodData> foodList;
+
 
     @InjectView(R.id.btn_top)
     Button _topButton;
@@ -72,10 +72,18 @@ public class MainActivity extends FragmentActivity {
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String[] languages = getResources().getStringArray(R.array.language);
-        String text = prefs.getString("language", languages[0]);
-        editor.putString("language", text);
+        String language = prefs.getString("language", languages[0]);
+        editor.putString("language", language);
         editor.apply();
-        Log.d(TAG,"language : "+text);
+        Log.d(TAG,"language : "+language);
+
+        if(foodList==null){
+            foodList = new ArrayList<>();
+            FirebaseDatabase database=FirebaseDatabase.getInstance();
+            language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
+            loadData(database,foodList,language);
+        }
+
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +106,16 @@ public class MainActivity extends FragmentActivity {
                 finish();
             }
         });
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,8 +127,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        FirebaseDatabase database=FirebaseDatabase.getInstance();
-        loadData(database,foodList,language);
     }
 
     @Override
@@ -137,7 +153,7 @@ public class MainActivity extends FragmentActivity {
         finish();
     }
 
-    public void loadData(FirebaseDatabase database, final List<FoodData> foods,String language){
+    public void loadData(FirebaseDatabase database, final List<FoodData> foods, final String language){
         DatabaseReference myRef=database.getReference(language);
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -148,6 +164,7 @@ public class MainActivity extends FragmentActivity {
                         FoodData f=postSnapshot.getValue(FoodData.class);
                         foods.add(f);
                     }
+                    Log.d(TAG, "언어 : "+language + " 데이터 로드 성공!");
                 }catch(DatabaseException e){
                     e.printStackTrace();
                 }

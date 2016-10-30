@@ -16,14 +16,9 @@
             android:background="@color/light_red">
 
 
-            <Button
-                android:id="@+id/signout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="signout"
-                android:layout_alignParentLeft="true"/>
 
             <LinearLayout
+                android:id="@+id/topLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -34,7 +29,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/spoon_white"/>
+                    android:src="@mipmap/spoon_white"
+                    android:id="@+id/imageView" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -44,7 +40,18 @@
                     android:textAppearance="@style/TextAppearance.JUA"/>
 
             </LinearLayout>
-
+            <Button
+                android:id="@+id/signout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Out"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.JUA"
+                android:background="@color/light_red"
+                android:layout_alignParentLeft="true"
+                android:layout_alignBottom="@id/topLayout"
+                android:layout_marginLeft="10dp"
+                />
 
         </RelativeLayout>
 
@@ -230,7 +237,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="About US"
+                    android:text="About us"
                     android:textColor="@color/dark_gray"
                     android:textSize="15dp"
                     android:textAppearance="@style/TextAppearance.JUA" />
@@ -271,7 +278,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="Chnge Password"
+                    android:text="Chnage Password"
                     android:textColor="@color/dark_gray"
                     android:textSize="15dp"
                     android:textAppearance="@style/TextAppearance.JUA" />

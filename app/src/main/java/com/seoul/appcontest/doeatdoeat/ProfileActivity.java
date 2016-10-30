@@ -51,6 +51,7 @@ public class ProfileActivity extends FragmentActivity {
     @InjectView(R.id.profile_top_username) TextView _topnameText;
     @InjectView(R.id.profile_username) TextView _nameText;
     @InjectView(R.id.profile_email) TextView _emailText;
+    @InjectView(R.id.profile_language) TextView _languageText;
 
     @InjectView(R.id.btn_top) Button _topButton;
     @InjectView(R.id.btn_tradi) Button _tipsButton;
@@ -91,8 +92,12 @@ public class ProfileActivity extends FragmentActivity {
                 _topnameText.setText(defaultName);
 
             }
-
             _emailText.setText(email);
+
+            SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
+            String[] languages = getResources().getStringArray(R.array.language);
+            String language = prefs.getString("language", languages[0]);
+            _languageText.setText(language);
 
             InputStream is;
             try {
@@ -243,6 +248,17 @@ public class ProfileActivity extends FragmentActivity {
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0,0);
+                finish();
+            }
+        });
+        // 좋아요 페이지 이동
+        _favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, LikeActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
                 finish();
             }
         });

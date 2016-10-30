@@ -27,6 +27,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -137,6 +145,7 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
                 if(!inputEmail.equals(email)){
                     changeEmail(user, inputEmail);
                 }
+
                 if(newLanguage!=null && !newLanguage.equals(language)){
                     changeLanguage(newLanguage);
                 }
@@ -207,6 +216,12 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
         }
         Log.d(TAG,"language : "+language);
 
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
+        MainActivity.foodList.clear();
+        loadData(database, MainActivity.foodList, language);
+
+
     }
     public void hideKeyboard(){
         //키보드 숨기기
@@ -230,16 +245,36 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
     @Override
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-        // On selecting a spinner item
         newLanguage = parent.getItemAtPosition(pos).toString();
-
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected newLanguage : " + newLanguage, Toast.LENGTH_LONG).show();
+        Log.d(TAG,"Selected newLanguage : " + newLanguage );
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
+    }
+
+    public void loadData(FirebaseDatabase database, final List<FoodData> foods, String language){
+        DatabaseReference myRef=database.getReference(language);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                try{
+                    for(DataSnapshot postSnapshot:dataSnapshot.getChildren()){
+                        FoodData f=postSnapshot.getValue(FoodData.class);
+                        foods.add(f);
+                    }
+                    Log.d(TAG,  " 데이터 로드 성공!");
+                }catch(DatabaseException e){
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG,"Failed to read value", databaseError.toException());
+            }
+        });
+
     }
 }
