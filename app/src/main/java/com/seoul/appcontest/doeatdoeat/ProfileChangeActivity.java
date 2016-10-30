@@ -217,7 +217,6 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
         Log.d(TAG,"language : "+language);
 
         FirebaseDatabase database=FirebaseDatabase.getInstance();
-        language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
         MainActivity.foodList.clear();
         loadData(database, MainActivity.foodList, language);
 

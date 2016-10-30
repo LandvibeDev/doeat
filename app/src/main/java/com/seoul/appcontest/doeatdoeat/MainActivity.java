@@ -80,7 +80,6 @@ public class MainActivity extends FragmentActivity {
         if(foodList==null){
             foodList = new ArrayList<>();
             FirebaseDatabase database=FirebaseDatabase.getInstance();
-            language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
             loadData(database,foodList,language);
         }
 
