@@ -80,8 +80,16 @@ public class MainActivity extends FragmentActivity {
         editor.apply();
         Log.d(TAG,"language : "+language);
 
+
         CheckTypesTask task = new CheckTypesTask();
         task.execute();
+
+        if(foodList==null){
+            foodList = new ArrayList<>();
+            FirebaseDatabase database=FirebaseDatabase.getInstance();
+            loadData(database,foodList,language);
+        }
+
 
         // 페이지 이동
         _topButton.setOnClickListener(new View.OnClickListener() {
@@ -193,12 +201,7 @@ public class MainActivity extends FragmentActivity {
         @Override
         protected Void doInBackground(Void... arg0) {
             try {
-                if(foodList==null){
-                    foodList = new ArrayList<>();
-                    FirebaseDatabase database=FirebaseDatabase.getInstance();
-                    language = language.substring(0, 1).toLowerCase()+language.substring(1, language.length());
-                    loadData(database,foodList,language);
-                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
