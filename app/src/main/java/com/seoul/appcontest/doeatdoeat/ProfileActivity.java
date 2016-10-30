@@ -51,6 +51,7 @@ public class ProfileActivity extends FragmentActivity {
     @InjectView(R.id.profile_top_username) TextView _topnameText;
     @InjectView(R.id.profile_username) TextView _nameText;
     @InjectView(R.id.profile_email) TextView _emailText;
+    @InjectView(R.id.profile_language) TextView _languageText;
 
     @InjectView(R.id.btn_top) Button _topButton;
     @InjectView(R.id.btn_tradi) Button _tipsButton;
@@ -91,8 +92,12 @@ public class ProfileActivity extends FragmentActivity {
                 _topnameText.setText(defaultName);
 
             }
-
             _emailText.setText(email);
+
+            SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
+            String[] languages = getResources().getStringArray(R.array.language);
+            String language = prefs.getString("language", languages[0]);
+            _languageText.setText(language);
 
             InputStream is;
             try {
