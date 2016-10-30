@@ -17,7 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -26,26 +25,20 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by user on 2016-10-31.
  */
 
-public class ChopsticksActivity extends FragmentActivity {
-    private static final String TAG = "ChopsticksActivity";
+public class DiningActivity extends FragmentActivity {
+    private static final String TAG = "DiningActivity";
     private FirebaseDatabase firebaseDatabase;
 
     @InjectView(R.id.btn_back) Button _btnBack;
     @InjectView(R.id.title) TextView _titleText;
     @InjectView(R.id.contents1) TextView _contents1Text;
     @InjectView(R.id.contents2) TextView _contents2Text;
-    @InjectView(R.id.contents3) TextView _contents3Text;
 
-    @InjectView(R.id.btn_top)
-    Button _topButton;
-    @InjectView(R.id.btn_tradi)
-    Button _tipsButton;
-    @InjectView(R.id.btn_list)
-    Button _listButton;
-    @InjectView(R.id.btn_favorite)
-    Button _favoriteButton;
-    @InjectView(R.id.btn_profile)
-    Button _profileButton;
+    @InjectView(R.id.btn_top) Button _topButton;
+    @InjectView(R.id.btn_tradi) Button _tipsButton;
+    @InjectView(R.id.btn_list) Button _listButton;
+    @InjectView(R.id.btn_favorite) Button _favoriteButton;
+    @InjectView(R.id.btn_profile) Button _profileButton;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -55,7 +48,7 @@ public class ChopsticksActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chopsticks);
+        setContentView(R.layout.activity_dining);
         ButterKnife.inject(this);
 
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
@@ -64,7 +57,7 @@ public class ChopsticksActivity extends FragmentActivity {
         Log.d(TAG,"language : "+language);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        loadTipsData(firebaseDatabase,language,"chopsticks");
+        loadTipsData(firebaseDatabase,language,"dining");
 
         _btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +70,7 @@ public class ChopsticksActivity extends FragmentActivity {
         _topButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChopsticksActivity.this, TopActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(DiningActivity.this, TopActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
@@ -87,8 +79,7 @@ public class ChopsticksActivity extends FragmentActivity {
         _tipsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChopsticksActivity.this, TipsActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(DiningActivity.this, TipsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
@@ -97,8 +88,7 @@ public class ChopsticksActivity extends FragmentActivity {
         _listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChopsticksActivity.this, MainActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(DiningActivity.this, MainActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 finish();
@@ -107,8 +97,7 @@ public class ChopsticksActivity extends FragmentActivity {
         _favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChopsticksActivity.this, LikeActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(DiningActivity.this, LikeActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
@@ -117,8 +106,7 @@ public class ChopsticksActivity extends FragmentActivity {
         _profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChopsticksActivity.this, ProfileActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(DiningActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
@@ -132,7 +120,7 @@ public class ChopsticksActivity extends FragmentActivity {
     }
 
     private void goToMain(){
-        Intent i= new Intent(ChopsticksActivity.this,TipsActivity.class);
+        Intent i= new Intent(DiningActivity.this,TipsActivity.class);
         i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
@@ -146,7 +134,7 @@ public class ChopsticksActivity extends FragmentActivity {
                 try{
                     TipsData t = dataSnapshot.getValue(TipsData.class);
                     String[] contentsArray=t.getContents().split("\n");
-                    setTextView(t.getTitle(), contentsArray[0],contentsArray[1],contentsArray[2]);
+                    setTextView(t.getTitle(), contentsArray[0],contentsArray[1]);
                     Log.d(TAG, "데이터 로드 성공!");
                 }catch (IndexOutOfBoundsException e){
                     e.printStackTrace();
@@ -162,11 +150,11 @@ public class ChopsticksActivity extends FragmentActivity {
         });
 
     }
-    private void setTextView(String title, String contents1, String contents2, String contents3){
+    private void setTextView(String title, String contents1, String contents2){
         _titleText.setText(title);
         _contents1Text.setText(contents1);
         _contents2Text.setText(contents2);
-        _contents3Text.setText(contents3);
+
     }
 
 
