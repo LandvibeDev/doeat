@@ -34,7 +34,7 @@ public class MainActivity extends FragmentActivity {
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
     private ListViewAdapter adapter = new ListViewAdapter();
-    String language = "korean";
+    String language = "japanese";
     public static List<FoodData> foodList=new ArrayList<>();
 
     @InjectView(R.id.btn_top)
