@@ -50,6 +50,10 @@
         <activity android:name=".TableMannerActivity"></activity>
 
         <activity android:name=".DiningActivity"></activity>
+        
+        <activity android:name=".DrinkActivity"></activity>
+
+        <activity android:name=".OrderFoodActivity"></activity>
 
         <activity
             android:name="com.facebook.FacebookActivity"
