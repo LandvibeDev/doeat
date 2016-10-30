@@ -164,6 +164,9 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         _buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(view.getBackground().equals(R.mipmap.spoon_red)){
+                    _buttonLike.setBackgroundResource(R.mipmap.doeat_logo1);
+                }
                 _buttonLike.setBackgroundResource(R.mipmap.spoon_red);
             }
         });
