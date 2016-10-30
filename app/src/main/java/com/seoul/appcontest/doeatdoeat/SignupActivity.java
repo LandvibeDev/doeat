@@ -24,6 +24,12 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -35,6 +41,8 @@ public class SignupActivity extends FragmentActivity {
     private static final String TAG = "SignupActivity";
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     @InjectView(R.id.name) AppCompatEditText _inputName;
     @InjectView(R.id.email) AppCompatEditText _inputEmail;
@@ -100,8 +108,13 @@ public class SignupActivity extends FragmentActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
-                                                        Log.d(TAG, "User profile updated.");
 
+                                                        // user 정보 DB에 생성
+                                                        firebaseDatabase =  FirebaseDatabase.getInstance();
+                                                        DatabaseReference myRef = firebaseDatabase.getReference("user");
+                                                        writeNewUser(myRef, firebaseUser.getUid(), firebaseUser.getEmail(), "Korean","");
+
+                                                        Log.d(TAG, "User profile updated.");
                                                         Toast.makeText(SignupActivity.this, "회원가입 완료!", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -132,5 +145,14 @@ public class SignupActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
+    }
+    private void writeNewUser(DatabaseReference databaseReference, String uid, String email, String language, String likeFoods) {
+        // /user/user-id/values 변경
+        //String key = databaseReference.push().getKey();
+        User user = new User(email,language,likeFoods);
+        Map<String, Object> userValues = user.toMap();
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put(uid, userValues);
+        databaseReference.updateChildren(childUpdates);
     }
 }

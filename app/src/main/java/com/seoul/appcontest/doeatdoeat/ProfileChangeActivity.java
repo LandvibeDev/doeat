@@ -34,7 +34,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -48,6 +50,10 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
     private static final String TAG = "ProfileChangeActivity";
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private FirebaseUser firebaseUser;
+
     private String newLanguage;
 
     @InjectView(R.id.btn_back) Button _backButton;
@@ -71,13 +77,13 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
         final String user_name;
         final String user_email;
         final Uri user_photoUrl;
-        final FirebaseUser user = auth.getCurrentUser();
-        if (user != null) {
+        firebaseUser = auth.getCurrentUser();
+        if (firebaseUser != null) {
             // User is signed in
             // Name, email address, and profile photo Url
-            user_name = user.getDisplayName();
-            user_email = user.getEmail();
-            user_photoUrl = user.getPhotoUrl();
+            user_name = firebaseUser.getDisplayName();
+            user_email = firebaseUser.getEmail();
+            user_photoUrl = firebaseUser.getPhotoUrl();
 
         }
 
@@ -139,15 +145,15 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
             public void onClick(View v) {
                 String inputName = _nameInput.getText().toString();
                 if(!inputName.equals(name)) {
-                    changeProfile(user, inputName);
+                    changeProfile(firebaseUser, inputName);
                 }
                 String inputEmail = _emailInput.getText().toString();
                 if(!inputEmail.equals(email)){
-                    changeEmail(user, inputEmail);
+                    changeEmail(firebaseUser, inputEmail);
                 }
 
                 if(newLanguage!=null && !newLanguage.equals(language)){
-                    changeLanguage(newLanguage);
+                    changeLanguage(firebaseUser,newLanguage);
                 }
 
                 //키보드 숨기기
@@ -203,7 +209,7 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
                     }
                 });
     }
-    public void changeLanguage(String language){
+    public void changeLanguage(FirebaseUser user, String language){
         SharedPreferences prefs = getSharedPreferences("UserInfo", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         String[] languages = getResources().getStringArray(R.array.language);
@@ -219,6 +225,7 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         MainActivity.foodList.clear();
         loadData(database, MainActivity.foodList, language);
+        changeLanguageDB(database, user.getUid(), language);
 
 
     }
@@ -254,7 +261,6 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
 
     public void loadData(FirebaseDatabase database, final List<FoodData> foods, String language){
         DatabaseReference myRef=database.getReference(language);
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -275,5 +281,11 @@ public class ProfileChangeActivity extends FragmentActivity implements AdapterVi
             }
         });
 
+    }
+    private void changeLanguageDB(FirebaseDatabase firebaseDatabase, String uid, String language){
+        DatabaseReference databaseReference = firebaseDatabase.getReference("/user");
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put(uid + "/language", language);
+        databaseReference.updateChildren(childUpdates);
     }
 }
