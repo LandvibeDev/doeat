@@ -70,7 +70,7 @@ public class SeoulPickActivity extends Activity {
         _gwangang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("  https://kto.visitkorea.or.kr/kor/kto/map/head.kto"));
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.visitseoul.net/index"));
                 act.startActivity(intent);
             }
         });
