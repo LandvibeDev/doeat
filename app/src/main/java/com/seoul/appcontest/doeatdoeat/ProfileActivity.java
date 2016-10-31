@@ -121,7 +121,6 @@ public class ProfileActivity extends FragmentActivity {
                 //set default image from the button
                 //icon = getResources().getDrawable(R.drawable.shopping1);
             } catch (NullPointerException e){
-                Toast.makeText(ProfileActivity.this, "photoUri is null", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "photoUri is null");
 
             }
