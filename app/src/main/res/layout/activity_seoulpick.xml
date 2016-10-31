@@ -49,21 +49,103 @@
 
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/iseoulu"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_below="@id/layout_topbar_3"
-            android:src="@drawable/iseoulu" />
 
-        <View
-            android:id="@+id/pick_line"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/iseoulu"
-            android:background="@color/gray"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"></View>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_topbar_3">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iseoulu"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/iseoulu" />
+
+                <View
+                    android:id="@+id/pick_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/iseoulu"
+                    android:background="@color/gray"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"></View>
+
+                <Button
+                    android:id="@+id/boja"
+                    android:layout_width="150dp"
+                    android:layout_below="@id/pick_line"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boja"
+                    />
+
+                <Button
+                    android:id="@+id/mukja"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/boja"
+                    android:background="@drawable/mukja"
+                    />
+                <Button
+                    android:id="@+id/nolja"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/mukja"
+                    android:background="@drawable/nolja"
+                    />
+
+                <ImageView
+                    android:id="@+id/seoulmap"
+                    android:layout_width="300dp"
+                    android:layout_height="500dp"
+                    android:layout_alignTop="@id/iseoulu"
+                    android:layout_toRightOf="@id/boja"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/seoulmap"
+                    />
+                <ImageView
+                    android:id="@+id/ifyouneed"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ifyouneed"
+                    android:layout_below="@id/nolja"
+                    android:layout_alignStart="@id/boja"
+                    />
+                <ImageView
+                    android:id="@+id/formore"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/formore"
+                    android:layout_margin="20dp"
+                    android:layout_below="@id/ifyouneed"
+                    android:layout_alignStart="@id/boja"
+                    />
+                <Button
+                    android:id="@+id/gwangang"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="20dp"
+                    android:layout_alignTop="@id/ifyouneed"
+                    android:layout_toRightOf="@+id/ifyouneed"
+                    android:background="@drawable/gwangang"/>
+                <Button
+                    android:id="@+id/visitseoul"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:paddingBottom="20dp"
+                    android:layout_alignTop="@id/formore"
+                    android:layout_toRightOf="@+id/formore"
+                    android:background="@drawable/visitseoul"/>
+
+            </RelativeLayout>
+        </ScrollView>
+
 
 
         <!-- 하단 바-->

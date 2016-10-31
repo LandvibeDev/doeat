@@ -2,11 +2,14 @@ package com.seoul.appcontest.doeatdoeat;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
@@ -18,17 +21,59 @@ import butterknife.InjectView;
 public class SeoulPickActivity extends Activity {
     private final long FINSH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    @InjectView(R.id.btn_back_s)
-    Button _btnBack;
+    @InjectView(R.id.btn_back_s) Button _btnBack;
     @InjectView(R.id.btn_favorite_s) Button _favoriteButton;
     @InjectView(R.id.btn_top_s) Button _topButton;
     @InjectView(R.id.btn_tradi_s) Button _tipsButton;
     @InjectView(R.id.btn_profile_s) Button _profileButton;
     @InjectView(R.id.btn_list_s) Button _listButton;
+    @InjectView(R.id.boja) Button _boja;
+    @InjectView(R.id.mukja) Button _mukja;
+    @InjectView(R.id.nolja) Button _nolja;
+    @InjectView(R.id.gwangang) Button _gwangang;
+    @InjectView(R.id.visitseoul) Button visitseoul;
+    Activity act=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seoulpick);
+        ButterKnife.inject(this);
+
+        _boja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.seoul.go.kr/mw/story/alleyway/AlleyWay3.do"));
+                act.startActivity(intent);
+            }
+        });
+        _nolja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.seoul.go.kr/mw/story/alleyway/AlleyWay1.do"));
+                act.startActivity(intent);
+            }
+        });
+        _mukja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.seoul.go.kr/mw/story/alleyway/AlleyWay2.do"));
+                act.startActivity(intent);
+            }
+        });
+        visitseoul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.visitseoul.net/index"));
+                act.startActivity(intent);
+            }
+        });
+        _gwangang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse("  https://kto.visitkorea.or.kr/kor/kto/map/head.kto"));
+                act.startActivity(intent);
+            }
+        });
 
         _btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
