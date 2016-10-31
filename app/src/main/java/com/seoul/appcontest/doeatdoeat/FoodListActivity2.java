@@ -2,7 +2,10 @@ package com.seoul.appcontest.doeatdoeat;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -37,23 +41,34 @@ import java.util.Map;
 /**
  * Created by a on 2016-09-29.
  */
-public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
+public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
     public static final String API_KEY = "AIzaSyDK9ZJVkfyycnlZh1zGd2riD2hS0Zxvafk";//사용자가 얻은 API Key을 입력하면 된다.(개발자 콘솔에 얻은 것.)
+    public static List<FoodData> likeFoodData=new ArrayList<>();
 
     //http://youtu.be/<VIDEO_ID>
     String VIDEO_ID = FoodListActivity.menuStr;
     private static final int RQS_ErrorDialog = 1;
 
-    @InjectView(R.id.list_title_2) TextView _title2;
-    @InjectView(R.id.explain_title) TextView _explainTitle;
-    @InjectView(R.id.explain_explain) TextView _explainExplain;
-    @InjectView(R.id.icon_hotlevel1) ImageView _hotlevel1;
-    @InjectView(R.id.icon_hotlevel2) ImageView _hotlevel2;
-    @InjectView(R.id.icon_hotlevel3) ImageView _hotlevel3;
-    @InjectView(R.id.icon_hotlevel4) ImageView _hotlevel4;
-    @InjectView(R.id.icon_hotlevel5) ImageView _hotlevel5;
-    @InjectView(R.id.button_like) Button _buttonLike;
-    @InjectView(R.id.btn_back_2) Button btnBack;
+    @InjectView(R.id.list_title_2)
+    TextView _title2;
+    @InjectView(R.id.explain_title)
+    TextView _explainTitle;
+    @InjectView(R.id.explain_explain)
+    TextView _explainExplain;
+    @InjectView(R.id.icon_hotlevel1)
+    ImageView _hotlevel1;
+    @InjectView(R.id.icon_hotlevel2)
+    ImageView _hotlevel2;
+    @InjectView(R.id.icon_hotlevel3)
+    ImageView _hotlevel3;
+    @InjectView(R.id.icon_hotlevel4)
+    ImageView _hotlevel4;
+    @InjectView(R.id.icon_hotlevel5)
+    ImageView _hotlevel5;
+    @InjectView(R.id.button_like)
+    Button _buttonLike;
+    @InjectView(R.id.btn_back_2)
+    Button btnBack;
     @InjectView(R.id.btn_top_2)
     Button _topButton;
     @InjectView(R.id.btn_tradi_2)
@@ -64,8 +79,10 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
     Button _favoriteButton;
     @InjectView(R.id.btn_profile_2)
     Button _profileButton;
-    @InjectView(R.id.foodpicture) ImageView foodPicture;
-    List<ImageView> hotImage=new ArrayList<>();
+    @InjectView(R.id.foodpicture)
+    ImageView foodPicture;
+    List<ImageView> hotImage = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,48 +90,49 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         setContentView(R.layout.activity_foodlist2);
         ButterKnife.inject(this);
 
-       addHotLevel();
+        addHotLevel();
 
-        _title2.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
-        _explainTitle.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
-        _explainExplain.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/BMJUA_ttf.ttf"));
+        _title2.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/BMJUA_ttf.ttf"));
+        _explainTitle.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/BMJUA_ttf.ttf"));
+        _explainExplain.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/BMJUA_ttf.ttf"));
 
-        for(int i=0;i<MainActivity.foodList.size();i++){
-            if(MainActivity.foodList.get(i).getName().equals(FoodListActivity.menuStr2)){
+        for (int i = 0; i < MainActivity.foodList.size(); i++) {
+            if (MainActivity.foodList.get(i).getName().
+                    equals(FoodListActivity.menuStr2)) {
                 _explainTitle.setText(MainActivity.foodList.get(i).getName());
                 _explainExplain.setText(MainActivity.foodList.get(i).getLongContents());
-                for(int j=0;j<5-MainActivity.foodList.get(i).getId();j++){
+                for (int j = 0; j < 5 - MainActivity.foodList.get(i).getId(); j++) {
                     hotImage.get(j).setImageResource(android.R.color.transparent);
                 }
             }
         }
-        if(FoodListActivity.menuNum==R.id.menu_all){
+        if (FoodListActivity.menuNum == R.id.menu_all) {
             _title2.setText("All");
-        }else if(FoodListActivity.menuNum==R.id.menu_rice){
+        } else if (FoodListActivity.menuNum == R.id.menu_rice) {
             _title2.setText("Rice");
-        }else if(FoodListActivity.menuNum==R.id.menu_noodle){
+        } else if (FoodListActivity.menuNum == R.id.menu_noodle) {
             _title2.setText("Noodle");
-        }else if(FoodListActivity.menuNum==R.id.menu_soup){
+        } else if (FoodListActivity.menuNum == R.id.menu_soup) {
             _title2.setText("Soup");
-        }else if(FoodListActivity.menuNum==R.id.menu_meat){
+        } else if (FoodListActivity.menuNum == R.id.menu_meat) {
             _title2.setText("Meat");
-        }else if(FoodListActivity.menuNum==R.id.menu_fish){
+        } else if (FoodListActivity.menuNum == R.id.menu_fish) {
             _title2.setText("Fish");
-        }else if(FoodListActivity.menuNum==R.id.menu_drink){
+        } else if (FoodListActivity.menuNum == R.id.menu_drink) {
             _title2.setText("Drink");
-        }else if(FoodListActivity.menuNum==R.id.menu_dessert){
+        } else if (FoodListActivity.menuNum == R.id.menu_dessert) {
             _title2.setText("Dessert");
-        }else if(FoodListActivity.menuNum==R.id.menu_street){
+        } else if (FoodListActivity.menuNum == R.id.menu_street) {
             _title2.setText("Street");
         }
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(FoodListActivity2.this,FoodListActivity.class);
+                Intent i = new Intent(FoodListActivity2.this, FoodListActivity.class);
                 i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
-                overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
+                overridePendingTransition(R.anim.slide_right, R.anim.slide_out_right);
                 finish();
             }
         });
@@ -169,21 +187,50 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
                 finish();
             }
         });
+
+
+        final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
         _buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view.getBackground().equals(R.mipmap.spoon_red)){
+                Drawable tempImg = getResources().getDrawable(R.mipmap.spoon_red);
+                Drawable tempImg2 = view.getBackground();
+                Bitmap tempBitmap = ((BitmapDrawable) tempImg).getBitmap();
+                Bitmap tempBitmap2 = ((BitmapDrawable) tempImg2).getBitmap();
+                if (tempBitmap.equals(tempBitmap2)) {
                     _buttonLike.setBackgroundResource(R.mipmap.doeat_logo1);
+                } else {
+                    _buttonLike.setBackgroundResource(R.mipmap.spoon_red);
+                    for (int i = 0; i < MainActivity.foodList.size(); i++) {
+                        if (FoodListActivity.menuStr2.equals(MainActivity.foodList.get(i).getName())) {
+                            MainActivity.foodList.get(i).setLike(MainActivity.foodList.get(i).getLike() + 1);
+                            boolean checkDuplicate=true;
+                            for(int j=0;j<likeFoodData.size();j++){
+                                if(likeFoodData.get(j).getName().equals(MainActivity.foodList.get(i).getName())){
+                                    checkDuplicate=false;
+                                }
+                            }
+                            if(checkDuplicate){
+                                likeFoodData.add(MainActivity.foodList.get(i));
+                            }
+                        }
+                    }
                 }
-                _buttonLike.setBackgroundResource(R.mipmap.spoon_red);
             }
         });
+
+
         /** Initializing YouTube player view **/
         YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
-        if(VIDEO_ID.equals("")){
+        if (VIDEO_ID.equals(""))
+
+        {
             youTubePlayerView.setVisibility(View.GONE);
-            foodPicture.setImageDrawable(((ImageView)FoodListActivity.foodView).getDrawable());
-        }else{
+            foodPicture.setImageDrawable(((ImageView) FoodListActivity.foodView).getDrawable());
+        } else
+
+        {
             foodPicture.setVisibility(View.GONE);
             youTubePlayerView.initialize(API_KEY, this);
         }
@@ -201,7 +248,8 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
     }
 
     @Override
-    public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
+    public void onInitializationSuccess(Provider provider, YouTubePlayer player,
+                                        boolean wasRestored) {
         /** add listeners to YouTubePlayer instance **/
         player.setPlayerStateChangeListener(playerStateChangeListener);
         player.setPlaybackEventListener(playbackEventListener);
@@ -257,28 +305,31 @@ public class FoodListActivity2 extends YouTubeBaseActivity implements YouTubePla
         public void onVideoStarted() {
         }
     };
+
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { // 백 버튼
-                Intent i= new Intent(FoodListActivity2.this,FoodListActivity.class);
-                i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_right,R.anim.slide_out_right);
-                finish();
+            Intent i = new Intent(FoodListActivity2.this, FoodListActivity.class);
+            i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_right, R.anim.slide_out_right);
+            finish();
         }
         return true;
     }
-    public void addHotLevel(){
+
+    public void addHotLevel() {
         hotImage.add(_hotlevel5);
         hotImage.add(_hotlevel4);
         hotImage.add(_hotlevel3);
         hotImage.add(_hotlevel2);
         hotImage.add(_hotlevel1);
     }
-    public void addLikeCount(FirebaseDatabase firebaseDatabase, String index){
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-//        Map<String, Object> childUpdates = new HashMap<>();
-//        childUpdates.put(uid + "/language", );
-//        databaseReference.updateChildren(childUpdates);
+
+    /*
+    public void addLikeCount(FirebaseDatabase firebaseDatabase, String language, String index) {
+        DatabaseReference databaseReference = firebaseDatabase.getReference(language);
+        databaseReference.child(index).child("like").setValue(MainActivity.foodList.get(Integer.parseInt(index)).getLike() + 1);
 
     }
+    */
 }

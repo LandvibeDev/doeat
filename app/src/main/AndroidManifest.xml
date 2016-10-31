@@ -19,6 +19,7 @@
         <activity android:name=".SplashActivity2">
 
         </activity>
+        <activity android:name=".SeoulPickActivity"></activity>
         <activity android:name=".MainActivity"></activity>
 
         <activity android:name=".LoginActivity"></activity>

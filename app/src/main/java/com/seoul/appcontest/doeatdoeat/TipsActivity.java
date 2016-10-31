@@ -40,6 +40,7 @@ public class TipsActivity extends FragmentActivity {
     @InjectView(R.id.btn_favorite) Button _favoriteButton;
     @InjectView(R.id.btn_profile) Button _profileButton;
 
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -151,6 +152,16 @@ public class TipsActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TipsActivity.this, ProfileActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
+        _seoulButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TipsActivity.this, SeoulPickActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(0, 0);

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/front_bar"
@@ -10,44 +11,60 @@
 
         <!-- 상단 바-->
         <RelativeLayout
-            android:id="@+id/layout_topbar"
+            android:id="@+id/layout_topbar_3"
             android:layout_width="match_parent"
             android:layout_height="60dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_centerInParent="true"
                 android:gravity="center"
-                android:layout_centerInParent="true">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/doeat_logo1"/>
+                    android:src="@mipmap/doeat_logo1" />
 
                 <TextView
+                    android:id="@+id/list_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Like"
-                    android:textColor="@color/gray"
+                    android:text="Seoul's pick"
                     android:textAppearance="@style/TextAppearance.JUA"
-                    android:id="@+id/textView" />
+                    android:textColor="@color/gray" />
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_back_s"
+                android:layout_width="30dp"
+                android:layout_height="27dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/back_icon" />
+
         </RelativeLayout>
 
-        <!-- 중간 카테고리 -->
-        <ListView
-            android:id="@+id/list_like"
+        <ImageView
+            android:id="@+id/iseoulu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_topbar"
-            android:layout_above="@+id/layout_menu"
-            >
-        </ListView>
+            android:layout_height="100dp"
+            android:layout_below="@id/layout_topbar_3"
+            android:src="@drawable/iseoulu" />
+
+        <View
+            android:id="@+id/pick_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/iseoulu"
+            android:background="@color/gray"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"></View>
+
 
         <!-- 하단 바-->
         <LinearLayout
@@ -55,10 +72,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/white"
+            android:background="@color/light_gray"
             android:orientation="horizontal">
 
-            <!-- star 버튼 -->
+            <!-- 홈 버튼 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -66,17 +83,17 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_top"
+                    android:id="@+id/btn_top_s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/btm_star_icon" />
             </RelativeLayout>
 
-            <!-- 태극기 버튼-->
+            <!-- 매칭 버튼 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -84,19 +101,18 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_tradi"
+                    android:id="@+id/btn_tradi_s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/btm_traditional_icon"
-                    />
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/btm_traditional_icon" />
 
             </RelativeLayout>
 
-            <!-- 수저 버튼 -->
+            <!-- 리스트 버튼 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -104,13 +120,13 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_list"
+                    android:id="@+id/btn_list_s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/btm_list_icon" />
 
             </RelativeLayout>
@@ -123,13 +139,13 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_favorite"
+                    android:id="@+id/btn_favorite_s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/btm_like_icon" />
 
             </RelativeLayout>
@@ -142,13 +158,13 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_profile"
+                    android:id="@+id/btn_profile_s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@mipmap/btm_profile_icon" />
 
             </RelativeLayout>
@@ -156,7 +172,4 @@
 
 
     </RelativeLayout>
-
-
-</FrameLayout>
-
+</RelativeLayout>

@@ -1,5 +1,11 @@
 package com.seoul.appcontest.doeatdoeat;
 
+import com.facebook.share.widget.LikeView;
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by a on 2016-10-28.
  */
@@ -79,4 +85,17 @@ public class FoodData {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Exclude
+    public Map<String,Object> toMap(){
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("name", name);
+        result.put("like", like);
+        result.put("count", count);
+        result.put("shortcontents", shortcontents);
+        result.put("longcontents", longcontents);
+        return result;
+    }
+
 }
